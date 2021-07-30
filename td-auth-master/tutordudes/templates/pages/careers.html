@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Careers{% endblock %}
+{% block content %}
+<section class="blocks section-padding">
+  <div class="container">
+    <div class="shop-bar">
+      <!-- Search -->
+      <div class="widget">
+        <div class="shop-bar-title text-center">
+          <h5>Want to Become a Tutor Dude or Tutor Dudette?</h5>
+          <h6>Select the Contact Form Below to Get in Touch with Us.</h6>
+        </div>
+      </div>
+
+      <div class="row mt-50">
+        <div class="col-md-5"></div>
+          <div class="col-md-3">
+            <a type="button" class="button btn-lg btn-bg-dark btn-rdus" href="{% url 'contact' %}">Go to Contact</a>
+          </div>
+            <div class="col-md-2"></div>
+      </div>
+   </div>
+  </div>
+</section>
+{% endblock %}
+

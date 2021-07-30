@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <!--====== Contact ======-->
+		<section id="contact" class="contact pb-100">
+			<!-- contact icfo -->
+			<div class="cont-info muilte">
+				<div class="container">
+
+					<!-- section header -->
+					<div class="section-head text-center">
+						<h5 class="tit">Get In Touch</h5>
+					</div>
+
+					<div class="row">
+            <div class="col-md-2"></div>
+						<div class="col-md-3">
+							<div class="info-item">
+								<div class="icon">
+									<span class="icon-phone"></span>
+								</div>
+								<div class="info-content">
+									<h6>Phone</h6>
+									<h5>+1 571-383-4448</h5>
+								</div>
+							</div>
+						</div>
+
+            <div class="col-md-3"></div>
+						<div class="col-md-3">
+							<div class="info-item">
+								<div class="icon">
+									<span class="icon-envelope"></span>
+								</div>
+								<div class="info-content">
+									<h6>E-mail</h6>
+									<h5>contact@tutordudes.com</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+
+
+				<div class="container">
+					<div class="row">
+						<!-- contact form -->
+						<div class="col-md-offset-2 col-md-8">
+							 <form class="form" method="post" action="{% url 'contact' %}">
+                  {% csrf_token %}
+                    <div class="controls">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="name" placeholder="Name *" required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                             <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" name="email" placeholder="Email *" required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="subject" name="subject" placeholder="Subject" required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea name="message" placeholder="Message *" rows="4" required="required"></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="submit" class="button" value="Send message">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+						</div>
+					</div>
+				</div>
+		</section>
+		<!--====== End Contact ======-->
+{% endblock %}

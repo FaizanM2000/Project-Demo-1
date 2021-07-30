@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+{% load account socialaccount %}
+{% block title %}Sign Up{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"/>
+  <style>
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      margin: 5px 0;
+      opacity: 0.85;
+      display: inline-block;
+      font-size: 17px;
+      line-height: 20px;
+      text-decoration: none; /* remove underline from anchors */
+    }
+
+    .fb {
+      background-color: #3B5998;
+      color: white;
+    }
+
+    .google {
+      background-color: #dd4b39;
+      color: white;
+    }
+
+    #btn {
+      width: 100%;
+      padding: 15px;
+    {#To set the width of signup and privacy policy#} border: none;
+      border-radius: 4px;
+      margin: 5px 0;
+      opacity: 0.85;
+      display: inline-block;
+      font-size: 17px;
+      line-height: 10px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .p {
+      width: 100%;
+      padding: 13px;
+    {#To set the width of signup and privacy policy#} border: none;
+      border-radius: 4px;
+      margin: 5px 0;
+      opacity: 0.85;
+      display: inline-block;
+      font-size: 15px;
+      line-height: 10px;
+      text-decoration: none;
+    }
+
+    #signup {
+      margin-top: 16px;
+    }
+
+    #prompt {
+      color: red;
+    }
+  </style>
+{% endblock %}
+
+
+{% block content %}
+  <!-- ====== Login ======  -->
+  <section class="login" style="margin-top: -60px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-4 col-md-5.1 col-sm-offset-3 col-sm-6">
+          <div class="login-box">
+            <div class="login-info text-center mb-25">
+              <h4>Sign Up</h4>
+            </div>
+
+            <form method="post" action="{% url 'account_signup' %}" }>
+              {% csrf_token %}
+              {{ form.non_field_errors }}
+
+              <input type="text" name="username" placeholder="Username" value="{{ form.username.values }}" required/>
+              {{ form.username.errors }}
+
+              <input type="email" name="email" placeholder="Email" value="{{ form.email.values }}" required/>
+              {{ form.email.errors }}
+
+              <input id="pw" type="password" name="password1" placeholder="Password" value="{{ form.password1.values }}"
+                     required/>
+              <a id="prompt">{{ form.password1.errors }}</a>
+
+
+              <input id="cpw" type="password" name="password2" placeholder="Verify Password"
+                     value="{{ form.password2.values }}"
+                     required/>
+              <a id="prompt">{{ form.password2.errors }}</a>
+              <input type="checkbox" onclick="myFunction()"> Show Me My Password
+
+              <script>
+                function myFunction() {
+                  var x = document.getElementById("pw");
+                  if (x.type === "password") {
+                    x.type = "text";
+                  } else {
+                    x.type = "password";
+                  }
+
+                  var y = document.getElementById("cpw");
+                  if (y.type === "password") {
+                    y.type = "text";
+                  } else {
+                    y.type = "password";
+                  }
+                }
+              </script>
+              <div id="signup">
+                {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <span><input id="btn" type="submit" name="send" value="Sign Up"></span>
+                <span><p class="p">By submitting this form, you agree to our</p></span>
+
+
+                <!-- Button trigger modal -->
+                <span><button id="btn" type="button" class="btn btn-sm btn-info" data-toggle="modal"
+                              data-target="#exampleModalLong">Privacy Policy</button></span>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                   aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Privacy Policy</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                    <div class="modal-body">
+                      <p>
+                        This privacy policy advises our site visitors and members of the types of personal information
+                        that may be collected on TutorDudes follows with respect to the use and sharing of such
+                        information on our platform. Using our platform is considered consent to this Privacy Notice.
+                      </p>
+                      <p>
+                        If you have any questions please email us at support@tutordudes.com
+                      </p>
+
+                      <h4>Information We Collect:</h4>
+                      <p>
+                        We collect certain personally identifiable information like (Username, email address, and
+                        profile picture) to enhance your experience. We may ask that you verify your email address
+                        before joining. This is to ensure your account safety. We may use third party tools to track
+                        user data and other trends such as your status, notifications of sessions, security of accounts,
+                        and other updates in use.
+                      </p>
+
+                      <p>
+                        We use a third party payment vendor system “Stripe” to handle purchases and keep Card
+                        information as part of your membership. Google and Facebook API to fulfill your login details
+                        (this is optional). You can also log in using your own information.
+                      </p>
+
+                      <p>
+                        This website uses its own "cookies" to increase user-friendliness ("cookies" are data records
+                        that are sent from the web server to the user’s browser and stored there for later retrieval).
+                        No personal data is stored in our own "cookies". You can prevent the use of "cookies" if you
+                        prohibit the storage of "cookies" in your browser using your system preferences. You may elect
+                        to decline all cookies via your computer. Every computer has the ability to decline file
+                        downloads like cookies. Your browser has an option to enable the declining of cookies.
+                      </p>
+
+
+                      <h4>
+                        Security:
+                      </h4>
+
+                      <p>
+                        Our sites use SSL, hashing, and encryption services to help protect your account. We frequently
+                        update and secure information. With that being said, no transmission of data can be completely
+                        secure. TutorDudes will not be held responsible for data breaches, leakes, hacks committed.
+                      </p>
+
+                      <h4>
+                        Links:
+                      </h4>
+
+                      <p>
+                        We offer third party links and ads on our website. The ads contain cookies and are independent
+                        of TutorDudes.
+                      </p>
+
+                      <h4>
+                        Deactivation:
+                      </h4>
+
+                      <p>
+                        We offer our users peace of mind. While surfing, users have the right to deactivate their
+                        account at any time. Please note, once this function is triggered, it will erase all account
+                        information from our systems and will immediately log you out.
+                      </p>
+
+                      <h4>Billing:</h4>
+                      <p>All plans are billed annually, unless stated otherwise. Other than the subscription plans,
+                        there is an annual maintenance fee of $19, regardless of the current plan. This is to ensure
+                        ULTRA and courses within TutorDudes are updated. Tutoring sessions are hourly. They are outside
+                        of your yearly membership fee, yet are subsidized to your budget. All sessions are backed by our
+                        “Satisfaction Promise.”
+                      </p>
+
+                      <h4>
+                        Refunds:
+                      </h4>
+
+                      <p>
+                        We are proud to offer our members a “Satisfaction Promise” ensuring members that they may obtain
+                        a refund from an unsatisfactory session so long as their reason is fair and sensible. Please
+                        give 24-48 hours for a refund to be transferred to the card on file. Refunds are not offered for
+                        membership costs or on annual maintenance fees.
+                      </p>
+
+                      <h4>
+                        Amends to this Policy:
+                      </h4>
+
+                      <p class="mb-20">
+                        TutorDudes reserves the right to add, change, or remove information at any time. Members are
+                        encouraged to check back often.
+                      </p>
+                    </div>
+
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+          <div class="login-link">
+            <p>Already have an account? Please <span><a href="{% url 'account_login' %}">Sign In</a></span></p>
+          </div>
+
+
+          {% get_providers as socialaccount_providers %}
+          {% if socialaccount_providers %}
+
+            <div>
+              <div class="d-flex justify-content-center links">
+                <a class="fb btn" href="{% provider_login_url 'facebook' method='oauth2' %}">
+                  <i class="fab fa-facebook-f mr-2"></i> Login with Facebook
+                </a>
+              </div>
+              <div class="d-flex justify-content-center links">
+                <a class="google btn" href="{% provider_login_url 'google' method='oauth2' %}">
+                  <i class="fab fa-google mr-2"></i> Login with Google
+                </a>
+              </div>
+            </div>
+
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ====== End Login ======  -->
+{% endblock %}

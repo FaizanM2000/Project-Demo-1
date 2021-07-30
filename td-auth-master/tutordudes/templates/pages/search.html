@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %}Search Tutors{% endblock %}
+
+{% block javascript %}
+  {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<section class="blocks section-padding">
+  <div class="container">
+    <div class="shop-bar">
+      <!-- Search -->
+      <div class="widget">
+        <div class="shop-bar-title text-center">
+          <h5>how can we help ?</h5>
+          <h6>Tell Us The Following...</h6>
+        </div>
+
+
+        <form>
+          <div class="row">
+            <div class="col-md-3">
+                <label for="grade-select">Select Grade:</label>
+                <div class="custom-select">
+                  <select name="grades" id="grade-select">
+                    <option value="K-8">K-8</option>
+                    <option value="8-12">8-12</option>
+                    <option value="Undergraduate">Undergraduate</option>
+                    <option value="Graduate">Graduate</option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="subject-select">Select Subject:</label>
+                <div class="custom-select">
+                  <select name="subjects" id="subject-select">
+                    <option value="Physics1">Physics 1</option>
+                    <option value="Physics2">Physics 2</option>
+                    <option value="Statistics">Statistics</option>
+                    <option value="CalculusAB">Calculus AB</option>
+                    <option value="CalculusBC">Calculus BC</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Geometry">Geometry</option>
+                    <option value="Algebra1">Algebra 1</option>
+                    <option value="Algebra2">Algebra 2</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Microbiology">Microbiology</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="ComputerScience">Computer Science</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="duration-select">Select Duration:</label>
+                <div class="custom-select">
+                  <select name="durations" id="duration-select">
+                    <option value="1 hour">1 hour</option>
+                    <option value="2 hour">2 hour</option>
+                    <option value="3 hour">3 hour</option>
+                  </select>
+                </div>
+               </div>
+
+              <div class="col-md-3">
+                <label for="style-select">Select Learning Styles:</label>
+                <div class="custom-select">
+                  <select name="styles" id="style-select">
+                    <option value="Visual">Visual</option>
+                    <option value="Print">Print</option>
+                    <option value="Tactile">Tactile</option>
+                    <option value="Interactive">Interactive</option>
+                    <option value="Kinesthetic">Kinesthetic</option>
+                  </select>
+                </div>
+               </div>
+          </div>
+
+          <div class="row mt-50">
+            <div class="col-md-5"></div>
+            <div class="col-md-3">
+{#              <input type="button" class="button btn-lg btn-bg-dark btn-rdus" value="Search" />#}
+              <a type="button" class="button btn-lg btn-bg-dark btn-rdus" href="{% url 'payment:plan' %}">Submit</a>
+
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </form>
+      </div>
+   </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block inline_javascript %}
+  {{ block.super }}
+{% endblock %}

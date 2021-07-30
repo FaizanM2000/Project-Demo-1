@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Account Inactive{% endblock %}
+{% block content %}
+
+  <section class="login">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 offset-md-3">
+          <h1>Account Inactive</h1>
+          <p>You can use email to re-activate your account</p>
+
+          <form action="{% url 'users:activate' %}" method="post">
+            {% csrf_token %}
+            <input id="email" type="email" name="email" placeholder="email" required>
+
+            {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <input type="submit" value="activate account" class="btn btn-info">
+          </form>
+        </div>
+      </div>
+			</div>
+  </section>
+
+{% endblock %}

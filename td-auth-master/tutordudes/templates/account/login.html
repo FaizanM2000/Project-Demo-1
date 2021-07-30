@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load account socialaccount %}
+{#{% providers_media_js %}#}
+{% block title %}Login{% endblock %}
+
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"/>
+  <style>
+
+  .btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        margin: 5px 0;
+        opacity: 0.85;
+        display: inline-block;
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none; /* remove underline from anchors */
+      }
+
+      .fb {
+        background-color: #3B5998;
+        color: white;
+      }
+
+      .google {
+        background-color: #dd4b39;
+        color: white;
+      }
+   </style>
+{% endblock %}
+
+
+{% block content %}
+  <!-- ====== Login ======  -->
+{#  <script>#}
+{#    window.fbAsyncInit = function () {#}
+{#      FB.init({#}
+{#        appId: '2912713532276971',#}
+{#        xfbml: true,#}
+{#        version: 'v11.0'#}
+{#      });#}
+{#      FB.AppEvents.logPageView();#}
+{#    };#}
+{##}
+{#    (function (d, s, id) {#}
+{#      var js, fjs = d.getElementsByTagName(s)[0];#}
+{#      if (d.getElementById(id)) {#}
+{#        return;#}
+{#      }#}
+{#      js = d.createElement(s);#}
+{#      js.id = id;#}
+{#      js.src = "https://connect.facebook.net/en_US/sdk.js";#}
+{#      fjs.parentNode.insertBefore(js, fjs);#}
+{#    }(document, 'script', 'facebook-jssdk'));#}
+{#  </script>#}
+		<section class="login">
+			<div class="container">
+				<div class="row">
+					<fo class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
+						<div class="login-box">
+							<div class="login-info text-center mb-50">
+								<h4>Login</h4>
+							</div>
+
+							<form method="post" action="{% url 'account_login' %}"}>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+								<input type="text" name="login" placeholder="Email or Username" value="{{ form.login.values }}" required />
+                {{ form.login.errors }}
+								<input type="password" name="password" placeholder="Password" value="{{ form.password.values }}" required />
+                {{ form.password.errors }}
+
+                {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me for 2 weeks</label>
+
+								<input type="submit" name="action" value="Login">
+							</form>
+						</div>
+
+						<div class="login-link">
+							<p>Don't have an account with us? <span><a href="{% url 'account_signup' %}">Sign Up</a></span></p>
+{#							<p>Forgot your username or password? <span><a href="{% url 'account_reset_password' %}">Recover Account</a></span></p>#}
+              <p>Forgot your password? <span><a href="{% url 'account_reset_password' %}">Reset Password</a></span></p>
+{#              <p>Forgot your username? <span><a href="{% url 'users:reset' %}">Reset Username</a></span></p>#}
+						</div>
+
+
+            {% get_providers as socialaccount_providers %}
+            {% if socialaccount_providers %}
+
+              <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                  <a class="fb btn" href="{% provider_login_url 'facebook' method='oauth2' %}">
+                    <i class="fab fa-facebook-f mr-2"></i> Login with Facebook
+                  </a>
+                </div>
+                <div class="d-flex justify-content-center links">
+                  <a class="google btn" href="{% provider_login_url 'google' method='oauth2' %}">
+                    <i class="fab fa-google mr-2"></i> Login with Google
+                  </a>
+                </div>
+              </div>
+            {% endif %}
+          </fo>
+				</div>
+			</div>
+		</section>
+		<!-- ====== End Login ======  -->
+{% endblock %}
+
+

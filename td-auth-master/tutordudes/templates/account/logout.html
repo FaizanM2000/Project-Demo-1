@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Out{% endblock %}
+
+{% block content %}
+  <style>
+    #logout {
+      margin-top: 120px;
+      margin-bottom: 0px;
+      margin-right: 40px;
+      margin-left: 4px;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    #sure {
+      margin-top: 12px;
+      margin-bottom: 0px;
+      margin-right: 40px;
+      margin-left: 4px;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    #btn {
+      margin-top: 12px;
+      margin-bottom: 0px;
+      margin-right: 40px;
+      margin-left: 4px;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+  </style>
+
+  <section class="login">
+    <div class="container" style="text-align: center;">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div id="logout" class="col-md-6 offset-md-3">
+          <h1>Sign Out</h1>
+          <p id="sure"><b>Are you sure you want to sign out?</b></p>
+
+          <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <button id="btn" class="btn btn-danger" type="submit">Sign Out</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+

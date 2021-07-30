@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Plan{% endblock %}
+{% block javascript %}
+  <script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
+{% block content %}
+		<!-- ====== price ======  -->
+
+		<section id="price" class="price section-padding section-bord">
+			<div class="container">
+        {% csrf_token %}
+				<!-- section header -->
+				<div class="section-head text-center">
+					<h5 class="tit">Subscription Price</h5>
+				</div>
+
+				<div class="row">
+
+					<!-- price items -->
+					<div class="col-md-4">
+						<div class="prc-item text-center">
+							<div class="type">
+								<h5>Bronze</h5>
+							</div>
+							<div class="main-price">
+								<h1>19<span>$/annual</span></h1>
+							</div>
+							<div class="features">
+								<p>Any subject tutoring</p>
+							</div>
+							<div class="features">
+								<p>24/7 access to online tutors</p>
+							</div>
+							<div class="features">
+								<p>Ask up to 10 questions from best tutors</p>
+							</div>
+              <div class="features">
+								<p>ULTRA learning conference</p>
+							</div>
+               <div class="features">
+								<p>TDGames</p>
+							</div>
+							<button id="bronze-plan-btn" class="button btn-bord-dark">Purchase</button>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="prc-item active text-center">
+							<div class="type">
+								<h5>Gold</h5>
+							</div>
+							<div class="main-price">
+								<h1>79<span>$/annual</span></h1>
+							</div>
+							<div class="features">
+								<p>Any subject tutoring</p>
+							</div>
+							<div class="features">
+								<p>24/7 access to online tutors</p>
+							</div>
+							<div class="features">
+								<p>Ask unlimited questions from best tutors</p>
+							</div>
+              <div class="features">
+								<p>ULTRA learning conference</p>
+							</div>
+               <div class="features">
+								<p>TDGames</p>
+							</div>
+              <div class="features">
+								<p>Access to digital resources/PPTS</p>
+							</div>
+							<button class="button btn-bg-dark" id="gold-plan-btn">Purchase</button>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="prc-item text-center">
+							<div class="type">
+								<h5>Silver</h5>
+							</div>
+							<div class="main-price">
+								<h1>49<span>$/annual</span></h1>
+							</div>
+							<div class="features">
+								<p>Any subject tutoring</p>
+							</div>
+							<div class="features">
+								<p>24/7 access to online tutors</p>
+							</div>
+							<div class="features">
+								<p>Ask up to 20 questions from best tutors</p>
+							</div>
+              <div class="features">
+								<p>ULTRA learning conference</p>
+							</div>
+               <div class="features">
+								<p>TDGames</p>
+							</div>
+              <div class="features">
+								<p>Access up to 5 digital resources/PPTS</p>
+							</div>
+              <button class="button btn-bord-dark" id="silver-plan-btn">Purchase</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- ====== End price ======  -->
+{% endblock %}
+
+{% block inline_javascript %}
+  {{ block.super }}
+  <script type="text/javascript" defer>
+    // If a fetch error occurs, log it to the console and show it in the UI.
+  var handleFetchResult = function(result) {
+    if (!result.ok) {
+      return result.json().then(function(json) {
+        if (json.error && json.error.message) {
+          throw new Error(result.url + ' ' + result.status + ' ' + json.error.message);
+        }
+      }).catch(function(err) {
+        showErrorMessage(err);
+        throw err;
+      });
+    }
+    return result.json();
+  };
+
+  // Create a Checkout Session with the selected plan ID
+  {#const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;#}
+  var createCheckoutSession = function(priceId) {
+    return fetch("{% url 'payment:create-checkout-session' %}", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        'X-CSRFToken': csrftoken,
+      },
+      body: JSON.stringify({
+        priceId: priceId
+      })
+    }).then(handleFetchResult);
+  };
+
+  // Handle any errors returned from Checkout
+  var handleResult = function(result) {
+    if (result.error) {
+      showErrorMessage(result.error.message);
+    }
+  };
+
+  var showErrorMessage = function(message) {
+    var errorEl = document.getElementById("error-message")
+    errorEl.textContent = message;
+    errorEl.style.display = "block";
+  };
+
+  /* Get your Stripe publishable key to initialize Stripe.js */
+  fetch("{% url 'payment:setup' %}")
+    .then(handleFetchResult)
+    .then(function(json) {
+      var publishableKey = json.publishableKey;
+      var bronzePriceId = json.bronzePrice;
+      var goldPriceId = json.goldPrice;
+      var silverPriceId = json.silverPrice;
+
+      var stripe = Stripe(publishableKey);
+      // Setup event handler to create a Checkout Session when button is clicked
+      document
+        .getElementById("bronze-plan-btn")
+        .addEventListener("click", function(evt) {
+          createCheckoutSession(bronzePriceId).then(function(data) {
+            // Call Stripe.js method to redirect to the new Checkout page
+            stripe
+              .redirectToCheckout({
+                sessionId: data.sessionId
+              })
+              .then(handleResult);
+          });
+        });
+
+      // Setup event handler to create a Checkout Session when button is clicked
+      document
+        .getElementById("gold-plan-btn")
+        .addEventListener("click", function(evt) {
+          createCheckoutSession(goldPriceId).then(function(data) {
+            // Call Stripe.js method to redirect to the new Checkout page
+            stripe
+              .redirectToCheckout({
+                sessionId: data.sessionId
+              })
+              .then(handleResult);
+          });
+        });
+
+      document
+        .getElementById("silver-plan-btn")
+        .addEventListener("click", function(evt) {
+          createCheckoutSession(silverPriceId).then(function(data) {
+            // Call Stripe.js method to redirect to the new Checkout page
+            stripe
+              .redirectToCheckout({
+                sessionId: data.sessionId
+              })
+              .then(handleResult);
+          });
+        });
+    });
+  </script>
+{% endblock %}
+
+

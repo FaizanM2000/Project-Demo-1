@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<style>
+body{
+    background: #eee;
+}
+.page-container{
+  margin-top:40px;
+}
+
+figure.user-card {
+    background: #ffffff;
+    padding: 20px;
+    border-top: 3px solid #f2f2f2;
+    border: 1px solid #e1e5f1;
+    text-align: center;
+}
+
+figure.user-card .profile {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    max-width: 72px;
+    margin-bottom: 20px;
+}
+
+figure.user-card p {
+    margin: 0;
+    padding: 0 0 15px 0;
+    color: #8796af;
+    line-height: 150%;
+    font-size: .85rem;
+}
+
+figure.user-card ul.contacts {
+    margin: 0;
+    padding: 0 0 15px 0;
+    line-height: 150%;
+    font-size: .85rem;
+}
+
+
+ul li {
+    list-style-type: none;
+}
+</style>
+
+  <br><br><br>
+<div class="container page-container">
+
+  <div class="row gutters">
+
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
+
+    	<figure class="user-card green">
+        <figcaption>
+          <img src="{% static 'images/team/tutor1.PNG' %}" alt="logo" class="tutor1">
+          <h5>Aliko Dangote</h5>
+          <p>On the 28th of October 2016 we completed a 3-part transaction with the contractor.</p>
+          <ul class="contacts">
+
+            <li>
+              <a href="{% url 'private_chat:private_chat_room' %}" class="btn btn-sm btn-info">
+                Chat Now
+              </a>
+            </li>
+          </ul>
+
+          <div class="clearfix">
+            <span class="badge badge-pill badge-info">#K-8</span>
+            <span class="badge badge-pill badge-success">#Visual</span>
+          </div>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12">
+
+    	<figure class="user-card green">
+        <figcaption>
+          <img src="{% static 'images/team/tutor1.PNG' %}" alt="logo" class="tutor1">
+          <h5>Aliko Dangote</h5>
+          <p>On the 28th of October 2016 we completed a 3-part transaction with the contractor.</p>
+          <ul class="contacts">
+
+            <li>
+              <a href="{% url 'private_chat:private_chat_room' %}" class="btn btn-sm btn-info">
+                Chat Now
+              </a>
+            </li>
+          </ul>
+
+          <div class="clearfix">
+            <span class="badge badge-pill badge-info">#k-8</span>
+            <span class="badge badge-pill badge-success">#Visual</span>
+          </div>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <div class="col-md-12">
+      <div class="page-numb text-center">
+        <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+        <span class="active">1</span><span>2</span><span>...</span>
+        <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

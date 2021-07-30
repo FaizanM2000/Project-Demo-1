@@ -1,0 +1,303 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+
+<html class="no-js" lang="en"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Always force latest IE rendering engine -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<!-- Title -->
+		<title>{% block title %}TutorDudes{% endblock title %}</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicons/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'images/favicons/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+  {% block css %}
+
+		<!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Dosis:100,400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+		<!-- Font awesome Core CSS -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/et-line.css' %}">
+
+		<!-- bootstrap css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- YouTubePopUp CSS -->
+		<link rel="stylesheet" href="{% static 'css/YouTubePopUp.css' %}">
+
+		<!-- magnific-popup CSS -->
+		<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+		<!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+		<!-- Custom style CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+		<!-- responsive CSS -->
+		<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+		<!--[if lt IE 9]-->
+    <script src="{% static 'js/html5shiv.min.js' %}"></script>
+		<!--[endif]-->
+
+  {% endblock %}
+  <style>
+    html {
+      position: relative;
+      min-height: 100%;
+    }
+
+
+  #footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+  }
+  </style>
+
+  {% block javascript %}
+  {% endblock %}
+	</head>
+
+	<body>
+
+		<!-- ====== Preloader ======  -->
+	    <div class="loading">
+			<div class="spinner">
+			  <div class="rect1"></div>
+			  <div class="rect2"></div>
+			  <div class="rect3"></div>
+			  <div class="rect4"></div>
+			  <div class="rect5"></div>
+			</div>
+		</div>
+		<!-- ======End Preloader ======  -->
+
+   {% block navbar %}
+		<!-- Navigation start -->
+    <nav class="navbar navbar-custom tt-default-nav nav-dark" role="navigation">
+        <div class="container">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- logo -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+              <img src="{% static 'images/tutordudes_logo.png' %}" alt="logo" class="logo_navbar">
+            </a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="custom-collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+              <li class="dropdown">
+                <a href="{% url 'home' %}">Home</a>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'about' %}">About</a>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'reviews' %}">Reviews</a>
+              </li>
+
+
+              <li class="dropdown">
+                <a href="{% url 'careers' %}">Careers</a>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'internships' %}">Internships</a>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'contact' %}">Contact</a>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'privacy' %}">Privacy Policy</a>
+              </li>
+
+              {% if request.user.is_authenticated %}
+                {% csrf_token %}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user.username }} Settings</a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{% url 'users:subscription' request.user.username %}"><i class="fa fa-user-circle"></i>&nbsp; Profile</a></li>
+                    <li><a href="{% url 'account_change_password' %}"><i class="fa fa-key"></i>&nbsp; Change Password</a></li>
+                    <li id="manage-billing"><a href="#"><i class="fa fa-cc-stripe"></i>&nbsp; Manage Billing</a></li>
+                    <li><a href="{% url 'account_logout' %}"><i class="fa fa-sign-out"></i>&nbsp; Logout</a></li>
+                  </ul>
+                </li>
+
+{#                <li class="nav-card">#}
+{#                  <span><a href="{% url 'notifications' %}"><i class="fa fa-bell" aria-hidden="true"></i>&nbsp; (1)</a></span>#}
+{#                </li>#}
+
+              {% else %}
+                <li class="dropdown">
+                  <a href="{% url 'account_login' %}">Login</a>
+                </li>
+                <!--<li class="dropdown">
+                  <a href="{% url 'account_signup' %}">Sign Up</a>
+                </li>-->
+              {% endif %}
+            </ul>
+          </div>
+        </div><!-- /.container -->
+    </nav>
+    <!-- Navigation end -->
+  {% endblock %}
+
+    {% if messages %}
+      {% for message in messages %}
+          <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+      {% endfor %}
+    {% endif %}
+
+
+  {% block content %}
+   {% endblock content %}
+
+
+  {% block footer %}
+    <!--====== Footer ======-->
+    <footer class="sticky-bottom footer" id="footer">
+      <!-- small footer -->
+      <div class="small-footer">
+        <div class="container">
+          <div class="row">
+
+            <!-- item -->
+            <div class="item">
+              <div class="col-md-6">
+                <img src="{% static 'images/tutordudes_logo.png' %}" alt="logo" class="logo_footer">
+              </div>
+              <div class="col-md-6">
+                <p>2021 Copyright © By TutorDudes | All Rights Reserved.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--====== End Footer ======-->
+  {% endblock %}
+
+    {% block modal %}{% endblock modal %}
+
+    {% block inline_javascript %}
+      <!--====== js ======-->
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+      <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+      <!-- digital ocean config -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+
+
+        <!-- bootstrap -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+      <!-- singlePageNav -->
+      <script src="{% static 'js/jquery.singlePageNav.min.js' %}"></script>
+
+      <!-- YouTubePopUp -->
+      <script src="{% static 'js/YouTubePopUp.jquery.js' %}"></script>
+
+      <!-- magnific-popup -->
+      <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+
+      <!-- owl carousel -->
+      <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+      <!-- stellar js -->
+      <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+
+
+      <!-- jquery.waypoints.min js -->
+      <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+
+          <!-- jquery.counterup.min js -->
+      <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+
+      <!-- typed js -->
+      <script src="{% static 'js/typed.js' %}"></script>
+
+      <!-- isotope.pkgd.min js -->
+      <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
+      <!-- animated.headline js -->
+      <script src="{% static 'js/animated.headline.js' %}"></script>
+
+      <!-- validator js -->
+      <script src="{% static 'js/validator.js' %}"></script>
+
+      <!-- custom js -->
+      <script src="{% static 'js/custom.js' %}"></script>
+
+      {% if request.user.is_authenticated %}
+        <script type="text/javascript" defer>
+          const urlParams = new URLSearchParams(window.location.search);
+          const sessionId = urlParams.get("session_id")
+          const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+          // In production, this should check CSRF, and not pass the session ID.
+          // The customer ID for the portal should be pulled from the
+          // authenticated user on the server.
+          document.getElementById('manage-billing').addEventListener('click', function(e) {
+            fetch("{% url 'payment:customer-portal' %}", {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+              },
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                window.location.href = data.url;
+              })
+              .catch((error) => {
+                console.error('Error:', error);
+              });
+          });
+        </script>
+
+      {% endif %}
+    {% endblock inline_javascript %}
+	</body>
+</html>

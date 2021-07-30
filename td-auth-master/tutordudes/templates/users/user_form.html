@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ user.username }}{% endblock %}
+
+{% block content %}
+  <section class="login">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 offset-md-3">
+                {% if user.profile_image %}
+                  <img
+                      id="img_id"
+                      src="{{ user.profile_image.url }}"
+                      class="d-block"
+                      width="80"
+                      height="80"
+                      style="border-radius: 50%;"
+                    />
+                {% else %}
+                  <img
+                        id="img_id"
+                        src="{% static 'images/default_image.png' %}"  class="d-block"
+                        width="80"
+                        height="80"
+                        style="border-radius: 50%;"
+                  />
+                {% endif %}
+
+          <form class="form-horizontal" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="control-group">
+              <div class="controls">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

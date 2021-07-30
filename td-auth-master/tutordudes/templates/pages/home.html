@@ -1,0 +1,421 @@
+{% extends 'base.html' %}
+{% load static %}
+   {% block navbar %}
+
+		<!-- Navigation start -->
+    <nav class="navbar navbar-custom tt-default-nav" role="navigation">
+        <div class="container">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- logo -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+              <img src="{% static 'images/tutordudes_logo.png' %}" alt="logo" class="logo_navbar">
+            </a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="custom-collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+              <li class="dropdown">
+                <a href="{% url 'home' %}">Home</a>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'about' %}">About</a>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'reviews' %}">Reviews</a>
+              </li>
+
+
+              <li class="dropdown">
+                <a href="{% url 'careers' %}">Careers</a>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'internships' %}">Internships</a>
+              </li>
+
+             <li class="dropdown">
+                <a href="{% url 'contact' %}">Contact</a>
+             </li>
+
+              <li class="dropdown">
+                <a href="{% url 'privacy' %}">Privacy Policy</a>
+              </li>
+
+              {% if request.user.is_authenticated %}
+                {% csrf_token %}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user.username }} Settings</a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{% url 'users:subscription' username=request.user.username %}"><i class="fa fa-user-circle"></i>&nbsp; Profile</a></li>
+                    <li><a href="{% url 'account_change_password' %}"><i class="fa fa-key"></i>&nbsp; Change Password</a></li>
+                    <li id="manage-billing"><a href="#"><i class="fa fa-cc-stripe"></i>&nbsp; Manage Billing</a></li>
+                    <li><a href="{% url 'account_logout' %}"><i class="fa fa-sign-out"></i>&nbsp; Logout</a></li>
+                  </ul>
+                </li>
+
+              {% else %}
+                <li class="dropdown">
+                  <a href="{% url 'account_login' %}">Login</a>
+                </li>
+                <!--<li class="dropdown">
+                  <a href="{% url 'account_signup' %}">Sign Up</a>
+                </li>-->
+              {% endif %}
+            </ul>
+          </div>
+        </div><!-- /.container -->
+    </nav>
+    <!-- Navigation end -->
+  {% endblock %}
+-->
+
+
+{% block content %}
+    <!-- ====== Header ======  -->
+		<header id="home" class="header demo-1" data-stellar-background-ratio="0.5">
+			<div class="header-overlay">
+				<!-- header content -->
+				<div class="caption v-middle text-center">
+          <h1>We Are TutorDudes</h1>
+					<h6>Find the Best Tutor at Your Learning Style</h6>
+					<button class="button btn-lg btn-warning btn-rdus mt-10"><a href="{% url 'account_login' %}">Get Started</a></button>
+				</div>
+				<div class="button-scroll" data-scrollTo="about"><span></span></div>
+			</div>
+		</header>
+		<!-- ====== End Header ======  -->
+
+		<!-- ====== services ======  -->
+		<section id="services" class="services section-padding">
+			<div class="container">
+
+				<!-- section head -->
+				<div class="section-head text-center">
+					<h5 class="tit">SERVICES</h5>
+				</div>
+
+				<div class="row">
+
+					<!-- services items -->
+					<div class="serv-row text-center">
+						<div class="col-md-4">
+							<div class="serv-item">
+								<span class="icon-laptop"></span>
+								<h6>Online Tutoring</h6>
+								<p>Our online tutoring provides students with strong academic support they need to keep academic momentum going. </p>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="serv-item">
+								<span class="icon-toolbox"></span>
+								<h6>24/7 Customer Service</h6>
+								<p>We are here to assist you with all your session quality, billing, or general inquiries.  When you contact us, you’ll always talk to real, friendly representatives who will always have an answer to your questions.</p>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="serv-item">
+								<span class="icon-pricetags"></span>
+								<h6>Easy Remote Payments</h6>
+								<p>Easily save, change or replace your card on file with a click. All payments are verified securely and your information is protected.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="serv-row text-center">
+						<div class="col-md-4">
+							<div class="serv-item">
+								<span class="icon-aperture"></span>
+								<h6>Software Platform</h6>
+								<p>Our online tutoring platforms are held through "ULTRA", Our educational e-learning platform. Speak, chat, write, and send files online any time.</p>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="serv-item">
+								<span class="icon-documents"></span>
+								<h6>Digital Learning Resources</h6>
+								<p>You can get unlimited PPTs, videos and audio after online chat or screening tutoring service with low price subscription.</p>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="serv-item">
+								<span class="icon-circle-compass"></span>
+								<h6>Different Learning Styles</h6>
+								<p>Online tutoring service offers students who require different learning styles such as one to one, one to many tutoring using audio, video and chat.</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- ====== End services ======  -->
+
+  <!-- ====== Video ======  -->
+		<div class="serv-us">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-sm-6 us-content">
+						<h5>Why Choose Us</h5>
+            <p>TutorDudes is a digital learning (SaaS) platform that provides tailored subject tutoring solutions with quality service, low price, satisfaction promise.</p>
+					</div>
+
+					<!-- our video -->
+					<!--<div class="col-md-offset-2 col-md-6 col-sm-6">
+						<div class="our-video">
+							<img src="https://images.squarespace-cdn.com/content/v1/5f3419147eb8f5531f546462/1609279280120-52GWOE36M6MNHJOZLUAB/ke17ZwdGBToddI8pDm48kA3CdFQrw9uyrfgw9IieNbhZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpyzqBq3i7xPFQ5ak81xQmRGfzLvMXrgStyxzv2BdT2eG889UAXQAt2vx13GpVXxdg4/StudentsIMG.jpg?format=2500w" alt="image">
+							<a class="vid" href="https://vimeo.com/127203262">
+								<div class="vid-play v-middle text-center">
+									<span><i class="fa fa-play-circle" aria-hidden="true"></i></span>
+								</div>
+							</a>
+						</div>
+					</div>-->
+				</div>
+			</div>
+		</div>
+		<!-- ====== End Video ======  -->
+
+    <!-- ====== process ======  -->
+		<section class="process section-padding">
+			<div class="container">
+				<div class="row">
+
+					<!-- items -->
+					<div class="col-md-3 col-sm-6">
+						<div class="items text-center">
+							<div class="item-title">
+								<div class="item-rotate">
+									<h5>01</h5>
+									<h6>Get Started</h6>
+								</div>
+							</div>
+							<div class="item-content">
+                <p>Click on <strong>Get Started</strong> button and login/signup</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-sm-6">
+						<div class="items text-center">
+							<div class="item-title">
+								<div class="item-rotate">
+									<h5>02</h5>
+									<h6>Subscriptions</h6>
+								</div>
+							</div>
+							<div class="item-content">
+								<p>Select and pay monthly/annually subscriptions</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-sm-6">
+						<div class="items text-center">
+							<div class="item-title">
+								<div class="item-rotate">
+									<h5>03</h5>
+									<h6>Search Tutors</h6>
+								</div>
+							</div>
+							<div class="item-content">
+								<p>Find and contact best tutors at your learning style</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-sm-6">
+						<div class="items text-center">
+							<div class="item-title">
+								<div class="item-rotate">
+									<h5>04</h5>
+									<h6>Clear doubts</h6>
+								</div>
+							</div>
+							<div class="item-content">
+								<p>Schedule and start tutoring to clear your doubts</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- ====== End process ======  -->
+
+		<!--====== Numbers ======-->
+		<section class="numbers">
+			<div class="container">
+				<div class="row text-center">
+
+					<!-- number items -->
+					<div class="col-md-3 col-sm-6">
+						<div class="numb-item">
+							<span class="icon-happy"></span>
+							<h3 class="counter">240</h3>
+							<p>HAPPY STUDENTS</p>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-sm-6">
+						<div class="numb-item">
+							<span class="icon-layers"></span>
+							<h3 class="counter">412</h3>
+							<p>SUPPORT SUBJECTS</p>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-sm-6">
+						<div class="numb-item">
+							<span class="icon-strategy"></span>
+							<h3 class="counter">126</h3>
+							<p>BEST TUTORS</p>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-sm-6">
+						<div class="numb-item">
+							<span class="icon-trophy"></span>
+							<h3 class="counter">7</h3>
+							<p>AWARDS</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!--====== End Numbers ======-->
+
+		<!--====== Contact ======-->
+		<section id="contact" class="contact">
+			<!-- contact icfo -->
+			<div class="cont-info muilte">
+				<div class="container">
+
+					<!-- section header -->
+					<div class="section-head text-center">
+						<h5 class="tit">Find Us</h5>
+					</div>
+
+					<div class="row">
+            <div class="col-md-2"></div>
+						<div class="col-md-3">
+							<div class="info-item">
+								<div class="icon">
+									<span class="icon-phone"></span>
+								</div>
+								<div class="info-content">
+									<h6>Phone</h6>
+									<h5>+1 571-383-4448</h5>
+								</div>
+							</div>
+						</div>
+
+            <div class="col-md-3"></div>
+						<div class="col-md-3">
+							<div class="info-item">
+								<div class="icon">
+									<span class="icon-envelope"></span>
+								</div>
+								<div class="info-content">
+									<h6>E-mail</h6>
+									<h5>contact@tutordudes.com</h5>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--====== End Contact ======-->
+
+{% endblock %}
+
+{% block footer %}
+  <!--====== Footer ======-->
+  <footer>
+  <!-- main footer -->
+			<div class="main-footer sticky-bottom">
+				<div class="container">
+					<div class="row">
+
+						<!-- item about -->
+						<div class="col-sm-4">
+							<div class="item-about">
+								<img src="{% static 'images/tutordudes_logo.png' %}" alt="logo" class="logo_footer_home">
+                <p>TutorDudes is a digital learning (SaaS) platform that provides tailored subject tutoring solutions to a student's learning style.</p>
+								<div class="social-icon">
+									<span><a href="https://www.facebook.com/tutordudesllc"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
+									<span><a href="https://twitter.com/tutordudesllc"><i class="fa fa-twitter" aria-hidden="true"></i></a></span>
+									<span><a href="https://www.linkedin.com/company/tutordudesllc/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></span>
+									<span><a href="https://www.instagram.com/tutordudes/"><i class="fa fa-instagram" aria-hidden="true"></i></a></span>
+								</div>
+							</div>
+						</div>
+
+						<!-- twity -->
+						<div class="col-sm-4">
+              <div class="item">
+							  <div class="twity">
+								  <h6>TutorDudes Resources Link</h6>
+                  <span><a href="https://play.google.com/store/apps/dev?id=9110467796888598878" class="icon-games"><i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+                  <p>TDGAMES - MOBILE WEBSITE </p>
+							  </div>
+
+							  <div class="twity">
+                  <span><a href="https://tdgames.com" class="icon-games"><i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+								  <p>TDGames - ONLINE WEBSITE</p>
+							  </div>
+                <div class="links">
+                  <a href="{% url 'home' %}"><span>Home</span></a>
+                  <a href="{% url 'careers' %}"><span>Careers</span></a>
+                  <a href="{% url 'internships' %}"><span>Internships</span></a>
+                  <a href="{% url 'contact' %}"><span>Contact</span></a>
+                </div>
+              </div>
+						</div>
+
+						<!-- subscribe -->
+						<div class="col-sm-4">
+							<div class="item">
+								<h6>GET IN TOUCH</h6>
+								<div class="sub-form">
+									<p>Subscribe To Get Latest News & Updates</p>
+									<input type="text" name="email" placeholder="Your Email">
+									<div class="btn-sub">
+										<button>Subscribe</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- sub footer -->
+			<div class="sub-footer text-center">
+				<div class="container">
+					<p>2021 Copyright © By TutorDudes | All Rights Reserved.</p>
+				</div>
+			</div>
+  </footer>
+  <!--====== End Footer ======-->
+
+{% endblock %}
+
+

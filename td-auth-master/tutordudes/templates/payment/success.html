@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  <section class="blocks section-padding">
+    <div class="container">
+      <h1>Your payment succeeded</h1>
+      <br>
+      <h5>Go ahead to find your tutors >> <a href="{% url 'results' %}">Search</a></h5>
+    </div>
+  </section>
+{% endblock %}
+

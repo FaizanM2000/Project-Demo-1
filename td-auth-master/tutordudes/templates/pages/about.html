@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About{% endblock %}
+{% block content %}
+  <style>
+    #story {
+      margin-top: 20px;
+      margin-bottom: 0px;
+      margin-right: 70px;
+      margin-left: 40px;
+      font-weight: bold;
+    }
+  </style>
+  <!--====== Team ======-->
+  <section id="team" class="team section-padding">
+    <div class="container">
+      <!-- section header -->
+      <div class="section-head text-center">
+        <p id="story">Our Story</p>
+        <br>
+      </div>
+
+      <div class="row">
+
+        <!-- team items -->
+        <div class="col-md-4 col-sm-6">
+          <div class="team-item">
+            <div class="team-img">
+              <img src="{% static 'images/team/01.jpeg' %}" alt="image">
+            </div>
+            <div class="team-info">
+              <h6>Mission Statement</h6>
+              <br>
+              <p>TutorDudes was launched in 2020 with a mission to deliver outstanding quantitative tutoring to students
+                to help them not only to do well in the classroom but to prepare them for their next step in
+                professional career.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="team-item">
+            <div class="team-img">
+              <img src="https://images.squarespace-cdn.com/content/v1/5f3419147eb8f5531f546462/1598812377014-WNRUQ1BZOHZ6UA0ZVZMP/ke17ZwdGBToddI8pDm48kK60W-ob1oA2Fm-j4E_9NQB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kD6Ec8Uq9YczfrzwR7e2Mh5VMMOxnTbph8FXiclivDQnof69TlCeE0rAhj6HUpXkw/students.jpg%22"
+                   alt="image">
+            </div>
+            <div class="team-info">
+              <h6>Vision Statement</h6>
+              <br>
+              <p>At TutorDudes, we offer you an opportunity to Get True Success whether you're an intern, employee,
+                officer, or a student seeking our services. From real industry experience to quality tutoring service!
+                We will not stop until we provide you with the best!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="team-item">
+            <div class="team-img">
+              <img src="https://images.squarespace-cdn.com/content/v1/5f3419147eb8f5531f546462/1598812459556-2RIYIU66LW7HOZGLCCAI/ke17ZwdGBToddI8pDm48kJ9Vf5x0a7V4oPpXjx7dc1N7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UaX5h46DTa2zhpD2S4dCqlGPZmkhkBVHbtbQ1eKMXMLsDypYv5Z9qB9WFs-NjPCfmw/kids.jpg"
+                   alt="image">
+            </div>
+            <div class="team-info">
+              <h6>About TutorDudes</h6>
+              <br>
+              <p>Arya Rashidian, the Founder & Chairman & CEO of TutorDudes. He started TutorDudes through his passion
+                to serve the students and empowering our team to provide future-forward learning and experience for
+                students and schools.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!--====== End Team ======-->
+
+  <!--====== Clients ======-->
+  <section id="clients" class="clients">
+    <div class="container">
+      <div class="row">
+
+        <!-- clients carousel -->
+        <div class="col-md-10 col-md-offset-1">
+          <div class="client-say text-center">
+            <div class="owl-carousel owl-theme">
+
+              <!-- client item -->
+              <div class="client-item text-center">
+
+                <span class="icon-quote mb-50"></span><br>
+
+                <h5 class="mb-30">Reviews !</h5>
+                <p>This is a great program they have helped me so much these past few days.</p>
+                <h6>___ Joseph Novak, high school student___</h6>
+              </div>
+
+              <!-- client item -->
+              <div class="client-item text-center">
+
+                <span class="icon-quote mb-50"></span><br>
+
+                <h5 class="mb-30">Reviews !</h5>
+                <p>Both of my tutors they helping me to take my asvab test again. They both helping me with the stuff
+                  that I don't understand the most beside the parts that I know.</p>
+                <h6>___ Roz Albarznji, high school student ___</h6>
+              </div>
+
+              <!-- client item -->
+              <div class="client-item text-center">
+
+                <span class="icon-quote mb-50"></span><br>
+
+                <h5 class="mb-30">Reviews !</h5>
+                <p>The programs were suited to my unique learning style.</p>
+                <h6>___ Sani Sogand ___</h6>
+              </div>
+
+              <!-- client item -->
+              <div class="client-item text-center">
+
+                <span class="icon-quote mb-50"></span><br>
+
+                <h5 class="mb-30">Reviews !</h5>
+                <p>I'm so glad I reached out to Arya at Tutor Dudes. I was having trouble with CS 330 and they made
+                  getting help so easy. Rosy was well-prepared and conducted our session in a professional and
+                  comprehensive manner. I feel so confident now that I know the material. I would 100% RECOMMEND you
+                  reach out to them if you're facing difficulties with any of your classes!</p>
+                <h6>___ Preeti J. ___</h6>
+              </div>
+
+
+              <!-- client item -->
+              <div class="client-item text-center">
+
+                <span class="icon-quote mb-50"></span><br>
+
+                <h5 class="mb-30">Reviews !</h5>
+                <p>This is a great program they have helped me so much these past few days</p>
+                <h6>___ Joseph Novak, high school student ___</h6>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--====== End Clients ======-->
+{% endblock %}

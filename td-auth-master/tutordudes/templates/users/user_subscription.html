@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+  <style>
+    #a {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      margin-right: 70px;
+      margin-left: 40px;
+    }
+  </style>
+
+  <section class="blocks section-padding">
+    <div class="container">
+      <!-- Action buttons -->
+      <div class="row">
+
+        <div class="col-sm-12">
+          <a id="a" class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
+          <a id="a" class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
+          <!-- Your Stuff: Custom user template urls -->
+        </div>
+
+      </div>
+      <!-- End Action buttons -->
+
+      <div class="mt-5 border border-gray-200 rounded shadow flex-grow sm:pl-8">
+        <h2 id="a" class="title-font font-medium text-lg text-gray-900">
+          Package: {{ user.subscription.pricing.name }}
+        </h2>
+        <h3 id="a" class="text-gray-500 mb-3">Status: {{ user.subscription.status }}</h3>
+        {% if user.subscription.status != "canceled" %}
+          <form method="post" class="py-3 mt-3" action="{% url 'users:cancel-subscription' request.user.username %}">
+            {% csrf_token %}
+            {{ form }}
+            <button id="a" class="btn btn-danger" role="button" type="submit">
+              Cancel Subscription
+            </button>
+          </form>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
