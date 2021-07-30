@@ -1,300 +1,299 @@
 {% extends 'base.html' %}
 {% block content %}
-<style>
-  body {
+    <style>
+        body {
 
-    background: linear-gradient(to bottom right, #3d60d6 20%, #ffffff 50%);
-  }
-</style>
+            background: linear-gradient(to bottom right, #3d60d6 20%, #ffffff 50%);
+        }
+    </style>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-  body {margin:0;}
-  
-  .topnav {
-    overflow: hidden;
-    background-color: #f1f1f1;
-  }
-  
-  .topnav a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    border-bottom: 3px solid transparent;
-    
-  }
-  .topnav li:last-child {
-      background-color: rgba(243, 164, 73, 0.959);
-    }
-    
-  
-  .topnav a:hover {
-    border-bottom: 3px solid red;
-  }
-  
-  .topnav a.active {
-    border-bottom: 3px solid red;
-  }
-  </style>
-  </head>
-  <body>
-  
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 0;
+            }
+
+            .topnav {
+                overflow: hidden;
+                background-color: #f1f1f1;
+            }
+
+            .topnav a {
+                float: left;
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+                border-bottom: 3px solid transparent;
+
+            }
+
+            .topnav li:last-child {
+                background-color: rgba(243, 164, 73, 0.959);
+            }
+
+
+            .topnav a:hover {
+                border-bottom: 3px solid red;
+            }
+
+            .topnav a.active {
+                border-bottom: 3px solid red;
+            }
+        </style>
+    </head>
+    <body>
+
     <div class="topnav">
-      <a class="active" href="http://127.0.0.1:8000/">Home</a>
-      <a href="http://127.0.0.1:8000/pricing">Pricing</a>
-      <a href="http://127.0.0.1:8000/contact">Contact</a>
-      <li style="float:right"><a href="http://127.0.0.1:8000/accounts/login">Log In</a></li>
+        <a class="active" href="http://127.0.0.1:8000/">Home</a>
+        <a href="http://127.0.0.1:8000/pricing">Pricing</a>
+        <a href="http://127.0.0.1:8000/contact">Contact</a>
+        <li style="float:right"><a href="http://127.0.0.1:8000/accounts/login">Log In</a></li>
     </div>
- 
-  
-  </body>
 
-<head>
-    <style>
-        * {
-            box-sizing: border-box;
-          }
-          
-          /* Create three columns of equal width */
-          .columns {
-            float: left;
-            width: 33.3%;
-            padding: 8px;
-          }
-          
-          /* Style the list */
-          .price {
-            list-style-type: none;
-            border: 1px solid #eee;
-            margin: 0;
-            padding: 0;
-            -webkit-transition: 0.3s;
-            transition: 0.3s;
-          }
-          
-          /* Add shadows on hover */
-          .price:hover {
-            box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
-          }
-          
-          /* Pricing header */
-          .price .header {
-            background-color: #CD7F32;
-            color: white;
-            font-size: 25px;
-          }
-          
-          /* List items */
-          .price li {
-            border-bottom: 1px solid #eee;
-            padding: 20px;
-            text-align: center;
-          }
-          
-          /* Grey list item */
-          .price .grey {
-            background-color: #eee;
-            font-size: 20px;
-          }
-          
-          /* The "Sign Up" button */
-          .button {
-            background-color: #04AA6D;
-            border: none;
-            color: white;
-            padding: 10px 25px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-          }
-          
-          /* Change the width of the three columns to 100%
-          (to stack horizontally on small screens) */
-          @media only screen and (max-width: 600px) {
-            .columns {
-              width: 100%;
-            }
-          }
-    </style>
-</head>
-<div class="columns">
-    <ul class="price">
-      <li class="header">Bronze TD Ultra</li>
-      <li class="grey">$ 49.99 / year</li>
-      <li>Video & Calls domestically up to 25 participants</li>
-      <li>Secured meetings via invitation</li>
-      <li>Record in real time</li>
-      <li>Tech support via email</li>
-      <li class="grey"><a href="http://127.0.0.1:8000/contact" class="button">Contact Us</a></li>
-    </ul>
-  </div>
-  <head>
-    <style>
-        * {
-            box-sizing: border-box;
-          }
-          
-          /* Create three columns of equal width */
-          .columns {
-            float: left;
-            width: 33.3%;
-            padding: 8px;
-            margin-bottom: 60px;
-          }
-          
-          /* Style the list */
-          .price {
-            list-style-type: none;
-            border: 1px solid #eee;
-            margin: 0;
-            padding: 0;
-            -webkit-transition: 0.3s;
-            transition: 0.3s;
-          }
-          
-          /* Add shadows on hover */
-          .price:hover {
-            box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
-          }
-          
-          /* Pricing header */
-           .price .header3 {
-            background-color: #FFD700;
-            color: white;
-            font-size: 25px;
-          }
-          
-          /* List items */
-          .price li {
-            border-bottom: 1px solid #eee;
-            padding: 20px;
-            text-align: center;
-          }
-          
-          /* Grey list item */
-          .price .grey {
-            background-color: #eee;
-            font-size: 20px;
-          }
-          
-          /* The "Sign Up" button */
-          .button {
-            background-color: #04AA6D;
-            border: none;
-            color: white;
-            padding: 10px 25px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-          }
-          
-          /* Change the width of the three columns to 100%
-          (to stack horizontally on small screens) */
-          @media only screen and (max-width: 600px) {
-            .columns {
-              width: 100%;
-            }
-          }
-    </style>
-</head>
-<div class="columns">
-    <ul class="price">
-      <li class="header3">Gold TD Ultra</li>
-      <li class="grey">$ 99.99 / year</li>
-      <li>Video and calls with unlimited participants</li>
-      <li>Secured meetings via invitation</li>
-      <li>Record in real time</li>
-      <li>Direct tech support with a representative</li>
-      <li class="grey"><a href="http://127.0.0.1:8000/contact" class="button">Contact Us</a></li>
-    </ul>
-    
-  </div>
-  <head>
-    <style>
-        * {
-            box-sizing: border-box;
-          }
-          
-          /* Create three columns of equal width */
-          .columns {
-            float: left;
-            width: 33.3%;
-            padding: 8px;
-          }
-          
-          /* Style the list */
-          .price {
-            list-style-type: none;
-            border: 1px solid #eee;
-            margin: 0;
-            padding: 0;
-            -webkit-transition: 0.3s;
-            transition: 0.3s;
-          }
-          
-          /* Add shadows on hover */
-          .price:hover {
-            box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
-          }
-          
-          /* Pricing header */
-           .price .header2 {
-            background-color: #C0C0C0;
-            color: white;
-            font-size: 25px;
-          }
-          
-          /* List items */
-          .price li {
-            border-bottom: 1px solid #eee;
-            padding: 20px;
-            text-align: center;
-          }
-          
-          /* Grey list item */
-          .price .grey {
-            background-color: #eee;
-            font-size: 20px;
-          }
-          
-          /* The "Sign Up" button */
-          .button {
-            background-color: #04AA6D;
-            border: none;
-            color: white;
-            padding: 10px 25px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-          }
-          
-          /* Change the width of the three columns to 100%
-          (to stack horizontally on small screens) */
-          @media only screen and (max-width: 600px) {
-            .columns {
-              width: 100%;
-            }
-          }
-    </style>
-</head>
-<div class="columns">
-    <ul class="price">
-      <li class="header2">Silver TD Ultra</li>
-      <li class="grey">$ 79.99 / year</li>
-      <li>Video & Calls Domestically up to 100 participants</li>
-      <li>Secured meetings via invitation</li>
-      <li>Record in real time</li>
-      <li>Tech support via email</li>
-      <li class="grey"><a href="http://127.0.0.1:8000/contact" class="button">Contact Us</a></li>
-    </ul>
-  </div>
-  
 
-  
-    
-  {% endblock %}
+    </body>
+
+    <head>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            /* Create three columns of equal width */
+            .columns {
+                float: left;
+                width: 33.3%;
+                padding: 8px;
+            }
+
+            /* Style the list */
+            .price {
+                list-style-type: none;
+                border: 1px solid #eee;
+                margin: 0;
+                padding: 0;
+                -webkit-transition: 0.3s;
+                transition: 0.3s;
+            }
+
+            /* Add shadows on hover */
+            .price:hover {
+                box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2)
+            }
+
+            /* Pricing header */
+            .price .header {
+                background-color: #CD7F32;
+                color: white;
+                font-size: 25px;
+            }
+
+            /* List items */
+            .price li {
+                border-bottom: 1px solid #eee;
+                padding: 20px;
+                text-align: center;
+            }
+
+            /* Grey list item */
+            .price .grey {
+                background-color: #eee;
+                font-size: 20px;
+            }
+
+            /* The "Sign Up" button */
+            .button {
+                background-color: #04AA6D;
+                border: none;
+                color: white;
+                padding: 10px 25px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            /* Change the width of the three columns to 100%
+            (to stack horizontally on small screens) */
+            @media only screen and (max-width: 600px) {
+                .columns {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <div class="columns">
+        <ul class="price">
+            <li class="header">Bronze TD Ultra</li>
+            <li class="grey">$ 49.99 / year</li>
+            <li>Video & Calls domestically up to 25 participants</li>
+            <li>Secured meetings via invitation</li>
+            <li>Record in real time</li>
+            <li>Tech support via email</li>
+            <li class="grey"><a href="http://127.0.0.1:8000/contact" class="button">Contact Us</a></li>
+        </ul>
+    </div>
+    <head>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            /* Create three columns of equal width */
+            .columns {
+                float: left;
+                width: 33.3%;
+                padding: 8px;
+                margin-bottom: 60px;
+            }
+
+            /* Style the list */
+            .price {
+                list-style-type: none;
+                border: 1px solid #eee;
+                margin: 0;
+                padding: 0;
+                -webkit-transition: 0.3s;
+                transition: 0.3s;
+            }
+
+            /* Add shadows on hover */
+            .price:hover {
+                box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2)
+            }
+
+            /* Pricing header */
+            .price .header3 {
+                background-color: #FFD700;
+                color: white;
+                font-size: 25px;
+            }
+
+            /* List items */
+            .price li {
+                border-bottom: 1px solid #eee;
+                padding: 20px;
+                text-align: center;
+            }
+
+            /* Grey list item */
+            .price .grey {
+                background-color: #eee;
+                font-size: 20px;
+            }
+
+            /* The "Sign Up" button */
+            .button {
+                background-color: #04AA6D;
+                border: none;
+                color: white;
+                padding: 10px 25px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            /* Change the width of the three columns to 100%
+            (to stack horizontally on small screens) */
+            @media only screen and (max-width: 600px) {
+                .columns {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <div class="columns">
+        <ul class="price">
+            <li class="header3">Gold TD Ultra</li>
+            <li class="grey">$ 99.99 / year</li>
+            <li>Video and calls with unlimited participants</li>
+            <li>Secured meetings via invitation</li>
+            <li>Record in real time</li>
+            <li>Direct tech support with a representative</li>
+            <li class="grey"><a href="http://127.0.0.1:8000/contact" class="button">Contact Us</a></li>
+        </ul>
+
+    </div>
+    <head>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            /* Create three columns of equal width */
+            .columns {
+                float: left;
+                width: 33.3%;
+                padding: 8px;
+            }
+
+            /* Style the list */
+            .price {
+                list-style-type: none;
+                border: 1px solid #eee;
+                margin: 0;
+                padding: 0;
+                -webkit-transition: 0.3s;
+                transition: 0.3s;
+            }
+
+            /* Add shadows on hover */
+            .price:hover {
+                box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2)
+            }
+
+            /* Pricing header */
+            .price .header2 {
+                background-color: #C0C0C0;
+                color: white;
+                font-size: 25px;
+            }
+
+            /* List items */
+            .price li {
+                border-bottom: 1px solid #eee;
+                padding: 20px;
+                text-align: center;
+            }
+
+            /* Grey list item */
+            .price .grey {
+                background-color: #eee;
+                font-size: 20px;
+            }
+
+            /* The "Sign Up" button */
+            .button {
+                background-color: #04AA6D;
+                border: none;
+                color: white;
+                padding: 10px 25px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            /* Change the width of the three columns to 100%
+            (to stack horizontally on small screens) */
+            @media only screen and (max-width: 600px) {
+                .columns {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <div class="columns">
+        <ul class="price">
+            <li class="header2">Silver TD Ultra</li>
+            <li class="grey">$ 79.99 / year</li>
+            <li>Video & Calls Domestically up to 100 participants</li>
+            <li>Secured meetings via invitation</li>
+            <li>Record in real time</li>
+            <li>Tech support via email</li>
+            <li class="grey"><a href="http://127.0.0.1:8000/contact" class="button">Contact Us</a></li>
+        </ul>
+    </div>
+{% endblock %}

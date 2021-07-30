@@ -1,167 +1,175 @@
 {% extends 'base.html' %}
 {% block content %}
-<style>
-  body {
-
-    background: linear-gradient(to bottom right, #3d60d6 20%, #ffffff 50%);
-  }
-</style>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-    body {margin:0;}
-    
-    .topnav {
-      overflow: hidden;
-      background-color: #f1f1f1;
-    }
-    
-    .topnav a {
-      float: left;
-      display: block;
-      color: black;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-      border-bottom: 3px solid transparent;
-      margin-left: 40px;
-    }
-   
-    .topnav li:last-child {
-        background-color: rgba(243, 164, 73, 0.959);
-        margin-right: 0px
-      }
-      
-    
-    .topnav a:hover {
-      border-bottom: 3px solid red;
-    }
-    
-    .topnav a.active {
-      border-bottom: 3px solid red;
-    }
-    .img-responsive {
-      height: auto;
-      width: auto;
-      max-height: 72px;
-      max-width: 250px;
-  }
-    </style>
-    </head>
-    <body>
-    
-    <div class="topnav">
-      <a href ="home.html"><img src = "https://cdn.glitch.com/6f461df7-536f-4300-91ab-34df1fa6fcb8%2FTD%20ULTRA%20W%20BG.png" class="img-responsive"></a>
-      <a class="active" href="http://127.0.0.1:8000/">Home</a>
-      <a href="http://127.0.0.1:8000/pricing">Pricing</a>
-      <a href="http://127.0.0.1:8000/contact">Contact</a>
-      <li style="float:right"><a href="http://127.0.0.1:8000/accounts/login">Log In</a></li>
-    </div>
-    
-   
-    
-    </body>
+        body {
 
-      <style>
-        p, b{
-            font-family: 'Times New Roman', Times, serif;
-            text-align: center;
-            font-size: 50px;
-            }
-        p {
-            font-family: 'Times New Roman', Times, serif;
-            text-align: center;
-            font-size: 20px; 
+            background: linear-gradient(to bottom right, #3d60d6 20%, #ffffff 50%);
         }
-      </style>
-    
-      <head>
+    </style>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            body {
+                margin: 0;
+            }
+
+            .topnav {
+                overflow: hidden;
+                background-color: #f1f1f1;
+            }
+
+            .topnav a {
+                float: left;
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+                border-bottom: 3px solid transparent;
+                margin-left: 40px;
+            }
+
+            .topnav li:last-child {
+                background-color: rgba(243, 164, 73, 0.959);
+                margin-right: 0px
+            }
+
+
+            .topnav a:hover {
+                border-bottom: 3px solid red;
+            }
+
+            .topnav a.active {
+                border-bottom: 3px solid red;
+            }
+
+            .img-responsive {
+                height: auto;
+                width: auto;
+                max-height: 72px;
+                max-width: 250px;
+            }
+
             * {
                 margin: 0;
                 padding: 0;
             }
+
             .imgbox {
                 display: grid;
                 height: 100%;
             }
+
             .center-fit {
                 max-width: 100%;
                 max-height: 100vh;
                 margin: auto;
             }
+
+            .textbox {
+                margin: 25px 50px 75px;
+            }
         </style>
     </head>
     <body>
-    <div class="imgbox">
-        <img class="center-fit" src='https://cdn.glitch.com/fd391532-69b6-479f-822c-77659bb02acb%2Ftdlogo.png?v=1623105887301'>
+
+    <div class="topnav">
+        <a href="home.html"><img
+                src="https://cdn.glitch.com/6f461df7-536f-4300-91ab-34df1fa6fcb8%2FTD%20ULTRA%20W%20BG.png"
+                class="img-responsive"></a>
+        <a class="active" href="http://127.0.0.1:8000/">Home</a>
+        <a href="http://127.0.0.1:8000/pricing">Pricing</a>
+        <a href="http://127.0.0.1:8000/contact">Contact</a>
+        <li style="float:right"><a href="http://127.0.0.1:8000/accounts/login">Log In</a></li>
     </div>
-      </div>
-      <style>
-        .textbox {
-          margin: 25px 50px 75px;
+
+
+    </body>
+
+    <style>
+        p, b {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            font-size: 50px;
         }
-      </style>
-      <div class = "textbox">
+
+        p {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+
+    <body>
+    <div class="imgbox">
+        <img class="center-fit"
+             src='https://cdn.glitch.com/fd391532-69b6-479f-822c-77659bb02acb%2Ftdlogo.png?v=1623105887301'>
+    </div>
+    </div>
+    <div class="textbox">
         <p><b>Contact Us</b></p>
         <p>We would love to hear more from you, please fill out the box below</p>
-      </div>
-        
+    </div>
 
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-    body {font-family: Arial, Helvetica, sans-serif;}
-    * {box-sizing: border-box;}
-    
-    input[type=text], select, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      margin-top: 6px;
-      margin-bottom: 16px;
-      resize: vertical;
-      
-    }
-    
-    input[type=submit] {
-      background-color: #04AA6D;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    
-    input[type=submit]:hover {
-      background-color: #45a049;
-    }
-    
-    .container {
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      padding: 20px;
-    }
-    </style>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            input[type=text], select, textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 6px;
+                margin-bottom: 16px;
+                resize: vertical;
+
+            }
+
+            input[type=submit] {
+                background-color: #04AA6D;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+            .container {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+        </style>
     </head>
-<body>
-    
-   
-    
+    <body>
+
+
     <div class="container">
-      <form action="/action_page.php">
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">
-    
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-    
-        <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>      
-        
+        <form action="/action_page.php">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            <label for="country">Country</label><span
+                style="color: red !important; display: inline; float: none;">*</span>
+
             <select id="country" name="country" class="form-control">
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
@@ -292,7 +300,8 @@
                 <option value="Lithuania">Lithuania</option>
                 <option value="Luxembourg">Luxembourg</option>
                 <option value="Macao">Macao</option>
-                <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+                <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of
+                </option>
                 <option value="Madagascar">Madagascar</option>
                 <option value="Malawi">Malawi</option>
                 <option value="Malaysia">Malaysia</option>
@@ -365,7 +374,9 @@
                 <option value="Solomon Islands">Solomon Islands</option>
                 <option value="Somalia">Somalia</option>
                 <option value="South Africa">South Africa</option>
-                <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
+                <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich
+                    Islands
+                </option>
                 <option value="Spain">Spain</option>
                 <option value="Sri Lanka">Sri Lanka</option>
                 <option value="Sudan">Sudan</option>
@@ -408,16 +419,16 @@
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
-           
-          <label for="subject">Email</label>
-          <textarea id="subject" name="subject" placeholder="Enter your email." style="height:200px"></textarea>
-            
-        <label for="subject">Additional Information Regarding Your Educational Needs</label>
-        <textarea id="subject" name="subject" placeholder="Educational Needs." style="height:200px"></textarea>
-    
-        <input type="submit" value="Submit">
-      </form>
+
+            <label for="subject">Email</label>
+            <textarea id="subject" name="subject" placeholder="Enter your email." style="height:200px"></textarea>
+
+            <label for="subject">Additional Information Regarding Your Educational Needs</label>
+            <textarea id="subject" name="subject" placeholder="Educational Needs." style="height:200px"></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
     </div>
-    
+
     </body>
 {% endblock %}

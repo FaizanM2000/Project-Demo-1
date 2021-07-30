@@ -1,208 +1,168 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load socialaccount %}
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<head>
-  <style>
-  .navTab  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgba(184, 184, 184, 0.6);
-    margin-bottom: 60px;
-  }
-  
-  .navTab li {
-    float: left;
-    border-right:1px solid rgb(255, 255, 255);
-  }
-  
-  .navTab li:last-child {
-    border-right: none;
-    background-color: rgba(243, 164, 73, 0.959);
-  }
-  
-  .navTab li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .navTab li a:hover:not(.active) {
-    background-color: rgb(44, 215, 238);
-  }
-  
-  .active {
-    background-color: #e2b665ef;
-  }
-  </style>
-  </head>
-  <body>
-  <div class = "navTab">
-  <ul>
-    <li><a class="active" href="http://127.0.0.1:8000/">Home</a></li>
-    <li><a href="http://127.0.0.1:8000/pricing/">Pricing</a></li>
-    <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
-    <li style="float:right"><a href="http://127.0.0.1:8000/accounts/login">Log In</a></li>
-  </ul>
- 
-  <head>
     <style>
+        .navTab ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgba(184, 184, 184, 0.6);
+            margin-bottom: 60px;
+        }
+
+        .navTab li {
+            float: left;
+            border-right: 1px solid rgb(255, 255, 255);
+        }
+
+        .navTab li:last-child {
+            border-right: none;
+            background-color: rgba(243, 164, 73, 0.959);
+        }
+
+        .navTab li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navTab li a:hover:not(.active) {
+            background-color: rgb(44, 215, 238);
+        }
+
+        .active {
+            background-color: #e2b665ef;
+        }
+
         * {
             margin: 0;
             padding: 0;
         }
+
         .imgbox {
             display: grid;
             height: 100%;
         }
+
         .center-fit {
             max-width: 100%;
             max-height: 100vh;
             margin: auto;
         }
-    </style>
-</head>
-<body>
-<div class="imgbox">
-    <img class="center-fit" src='https://cdn.glitch.com/fd391532-69b6-479f-822c-77659bb02acb%2Ftdlogo.png?v=1623105887301'>
-</div>
-  </div>
-  
-  </body>
-  <style>
-    .home {
-    background-image: url('images/image.png');
-    background-repeat: no-repeat;
-    background-size: 50% 100%;
-}
-</style>
-<div class = "home">
 
-</div>
-{% if user.is_authenticated %}
-<head>
-  <style>
-  p {text-align: center;}
-  p {text-align: center;}
- 
-  </style>
-  </head>
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-  <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
-{% else %}
-<head>
-  <style>
-  p {text-align: center;}
-  p {text-align: center;}
-  p {text-align: center;}
- 
-  </style>
-  </head>
-  <head>
-    <style>
-      .half-box {
-        border-left: 1px solid black;
-        border-top: 1px solid black;
-        position: relative;
-        padding: 30px;
-      }
-      
-      .half-box > .title {
-        background-color: white;
-        padding: 0 10px;
-        position: absolute;
-        top: 0;
-        left: 30px;
-        font-size: 20px;
-        transform: translateY(-50%);
-      }
-    </style>
-  </head>
-  <p>You are not logged in</p>
-  <p><a href="{% url 'login' %}">Log In</a></p>
-  <p><a href="{% provider_login_url 'google' %}">Login With Google</a></p>
-  <body>
-    <script>
-    
-      function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-        console.log('statusChangeCallback');
-        console.log(response);                   // The current login status of the person.
-        if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-          testAPI();  
-        } else {                                 // Not logged into your webpage or we are unable to tell.
-          document.getElementById('status').innerHTML = 'Please log ' +
-            'into this webpage.';
+        .home {
+            background-image: url('registration/tdlogo.png');
+            background-repeat: no-repeat;
+            background-size: 50% 100%;
         }
-      }
-    
-    
-      function checkLoginState() {               // Called when a person is finished with the Login Button.
-        FB.getLoginStatus(function(response) {   // See the onlogin handler
-          statusChangeCallback(response);
-        });
-      }
-    
-    
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '{app-id}',
-          cookie     : true,                     // Enable cookies to allow the server to access the session.
-          xfbml      : true,                     // Parse social plugins on this webpage.
-          version    : '{api-version}'           // Use this Graph API version for this call.
-        });
-    
-    
-        FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-          statusChangeCallback(response);        // Returns the login status.
-        });
-      };
-     
-      function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-        console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', function(response) {
-          console.log('Successful login for: ' + response.name);
-          document.getElementById('status').innerHTML =
-            'Thanks for logging in, ' + response.name + '!';
-        });
-      }
-    
-    </script>
-    
-    
-  
-    </body>
-{% endif %}
-<style>
-  .child1 {
-    background-repeat: no-repeat;
-    background-size: 50%;
-  }
-</style>
-<div style="height: 100px">
-</div>
 
+        p {
+            text-align: center;
+        }
 
+        .half-box {
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+            position: relative;
+            padding: 30px;
+        }
 
-<body>
-  <div style="width: 100%;">
-      <div style="width: 50%; height: 100px; float: left; "> 
-          At TD Ultra you will be able to use a lot of cool features. 
-      </div>
-      <div class = "child1">
-      <div style="width: 100%;">
-        <div style="width: 50%; height: 100px; float: left; "> 
-        
-          <img src="https://clalliance.org/wp-content/uploads/2019/08/KidsonComputer.jpg" max-width = 50% max-height = 50% alt="alternatetext">
-          
+        .half-box > .title {
+            background-color: white;
+            padding: 0 10px;
+            position: absolute;
+            top: 0;
+            left: 30px;
+            font-size: 20px;
+            transform: translateY(-50%);
+        }
+
+        .child1 {
+            background-repeat: no-repeat;
+            background-size: 50%;
+        }
+    </style>
+
+    <div class="navTab">
+        <ul>
+            <li><a class="active" href="http://127.0.0.1:8000/">Home</a></li>
+            <li><a href="http://127.0.0.1:8000/pricing/">Pricing</a></li>
+            <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
+            <li style="float:right"><a href="http://127.0.0.1:8000/accounts/login">Log In</a></li>
+        </ul>
+        <a>
+            <img src="{% static 'images/tdlogo.png' %}">
+        </a>
+
+        {% if user.is_authenticated %}
+            Hi {{ user.username }}!
+            <p><a href="{% url 'logout' %}">Log Out</a></p>
+            <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+        {% else %}
+            <p>You are not logged in</p>
+            <p><a href="{% url 'login' %}">Log In</a></p>
+            <p><a href="{% provider_login_url 'google' %}">Login With Google</a></p>
+            <script>
+                function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+                    console.log('statusChangeCallback');
+                    console.log(response);                   // The current login status of the person.
+                    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+                        testAPI();
+                    } else {                                 // Not logged into your webpage or we are unable to tell.
+                        document.getElementById('status').innerHTML = 'Please log ' +
+                            'into this webpage.';
+                    }
+                }
+
+                function checkLoginState() {               // Called when a person is finished with the Login Button.
+                    FB.getLoginStatus(function (response) {   // See the onlogin handler
+                        statusChangeCallback(response);
+                    });
+                }
+
+                window.fbAsyncInit = function () {
+                    FB.init({
+                        appId: '{app-id}',
+                        cookie: true,                     // Enable cookies to allow the server to access the session.
+                        xfbml: true,                     // Parse social plugins on this webpage.
+                        version: '{api-version}'           // Use this Graph API version for this call.
+                    });
+
+                    FB.getLoginStatus(function (response) {   // Called after the JS SDK has been initialized.
+                        statusChangeCallback(response);        // Returns the login status.
+                    });
+                };
+
+                function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+                    console.log('Welcome!  Fetching your information.... ');
+                    FB.api('/me', function (response) {
+                        console.log('Successful login for: ' + response.name);
+                        document.getElementById('status').innerHTML =
+                            'Thanks for logging in, ' + response.name + '!';
+                    });
+                }
+            </script>
+        {% endif %}
+
+        <div style="width: 100%;">
+            <div style="width: 50%; height: 100px; float: left; ">
+                At TD Ultra you will be able to use a lot of cool features.
+            </div>
+            <div class="child1">
+                <div style="width: 100%;">
+                    <div style="width: 50%; height: 100px; float: left; ">
+
+                        <img src="https://clalliance.org/wp-content/uploads/2019/08/KidsonComputer.jpg" max-width=50%
+                             max-height=50% alt="alternatetext">
+                    </div>
+                </div>
+            </div>
         </div>
-  </div>
-</div>
-</body>
-
+    </div>
 {% endblock %}
