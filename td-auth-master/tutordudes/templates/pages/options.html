@@ -9,7 +9,7 @@
 
 					<!-- section header -->
 					<div class="section-head text-center">
-						<h5 class="tit">Get In Touch</h5>
+						<h5 class="tit">Affordable Options</h5>
 					</div>
 
 					<div class="row">
@@ -46,14 +46,14 @@
 					<div class="row">
 						<!-- contact form -->
 						<div class="col-md-offset-2 col-md-8">
-							 <form class="form" method="post" action="{% url 'contact' %}">
+							 <form class="form" method="post" action="{% url 'options' %}">
                   {% csrf_token %}
                     <div class="controls">
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="name" placeholder="Name *" required />
+                                    <input type="text" name="name" placeholder="Name(First and Last) *" required />
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -68,17 +68,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="subject" name="subject" placeholder="Subject" required />
+                                    <textarea name="message" placeholder=" Additional Information on How our Affordable Plan Can Help You? (Please Write specifically and in great detail). *" rows="4" required="required"></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <textarea name="message" placeholder="Message *" rows="4" required="required"></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
+                            <div class="info-content">
+									            <h6>A Representative will contact you shortly, if qualified.</h6>
                             </div>
                             <div class="col-sm-4">
                                 <input type="submit" class="button" value="Send message">

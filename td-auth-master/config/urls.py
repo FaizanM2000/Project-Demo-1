@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
-from .views import ContactView
+from .views import ContactView, ContactViewNew
 
 urlpatterns = [
 
@@ -18,6 +18,7 @@ urlpatterns = [
                   path("internships/", TemplateView.as_view(template_name='pages/internships.html'),
                        name='internships'),
                   path("contact/", ContactView.as_view(), name="contact"),
+                  path("options/", ContactViewNew.as_view(), name="options"),
                   path("privacy/", TemplateView.as_view(template_name='pages/privacy.html'), name='privacy'),
 
                   # Django Admin, use {% url 'admin:index' %}

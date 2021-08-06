@@ -19,49 +19,49 @@
             </a>
           </div>
 
-          <div class="collapse navbar-collapse" id="custom-collapse">
+          <div class="collapse navbar-collapse" id="custom-collapse" >
 
             <ul class="nav navbar-nav navbar-right">
 
                 <li class="dropdown">
-                <a href="{% url 'home' %}" style="font-size:50px">Home</a>
+                <a href="{% url 'home' %}"style="font-size:12px"style = "color:white" >Home</a>
               </li>
 
               <li class="dropdown">
-                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'contact' %}" style="font-size:12px" style = "color:white">Contact</a>
               </li>
 
               <li class="dropdown">
-                <a href="{% url 'contact' %}">Affordable Options</a>
+                <a href="{% url 'options' %}"style="font-size:12px"style = "color:white">Affordable Options</a>
               </li>
 
               <li class="dropdown">
-                <a href="{% url 'privacy' %}">Privacy Policy</a>
+                <a href="{% url 'privacy' %}"style="font-size:12px"style = "color:white">Privacy Policy</a>
               </li>
 
               <li class="dropdown">
-                <a href="{% url 'privacy' %}">Plans & Pricing</a>
+                <a href="{% url 'privacy' %}"style="font-size:12px"style = "color:white">Plans & Pricing</a>
               </li>
 
 
               {% if request.user.is_authenticated %}
                 {% csrf_token %}
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user.username }} Settings</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"style="font-size:12px"style = "color:white">{{ request.user.username }} Settings</a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="{% url 'users:subscription' username=request.user.username %}"><i class="fa fa-user-circle"></i>&nbsp; Profile</a></li>
-                    <li><a href="{% url 'account_change_password' %}"><i class="fa fa-key"></i>&nbsp; Change Password</a></li>
-                    <li id="manage-billing"><a href="#"><i class="fa fa-cc-stripe"></i>&nbsp; Manage Billing</a></li>
-                    <li><a href="{% url 'account_logout' %}"><i class="fa fa-sign-out"></i>&nbsp; Logout</a></li>
+                    <li><a href="{% url 'users:subscription' username=request.user.username %}"style="font-size:12px"style = "color:white"><i class="fa fa-user-circle"></i>&nbsp; Profile</a></li>
+                    <li><a href="{% url 'account_change_password' %}"style="font-size:12px"style = "color:white"><i class="fa fa-key"></i>&nbsp; Change Password</a></li>
+                    <li id="manage-billing"><a href="#"style="font-size:12px"style = "color:white"><i class="fa fa-cc-stripe"></i>&nbsp; Manage Billing</a></li>
+                    <li><a href="{% url 'account_logout' %}"style="font-size:12px"style = "color:white"><i class="fa fa-sign-out"></i>&nbsp; Logout</a></li>
                   </ul>
                 </li>
 
               {% else %}
                 <li class="dropdown">
-                  <a href="{% url 'account_login' %}">Sign In</a>
+                  <a href="{% url 'account_login' %}"style="font-size:12px">Sign In</a>
                 </li>
                 <li class="dropdown">
-                  <a href="{% url 'account_signup' %}">Sign Up For Free</a>
+                  <a href="{% url 'account_signup' %}"style="font-size:12px">Sign Up For Free</a>
                 </li>
               {% endif %}
             </ul>
@@ -81,7 +81,7 @@
 				<div class="caption v-middle text-center">
           <h1>Welcome to TDULTRA</h1>
 					<h6></h6>
-					<button class="button btn-lg btn-warning btn-rdus mt-10"><a href="{% url 'account_login' %}">Get your personalized help today</a></button>
+					<button class="button btn-lg btn-warning btn-rdus mt-10" style="background-color: white"><a href="{% url 'account_login' %}">Get your personalized help today</a></button>
 				</div>
 				<div class="button-scroll" data-scrollTo="about"><span></span></div>
 			</div>
