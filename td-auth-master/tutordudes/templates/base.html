@@ -18,7 +18,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<!-- Title -->
-		<title>{% block title %}TutorDudes{% endblock title %}</title>
+		<title>{% block title %}TDULTRA{% endblock title %}</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicons/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicons/favicon-32x32.png' %}">
@@ -128,24 +128,11 @@
               </li>
 
               <li class="dropdown">
-                <a href="{% url 'about' %}">About</a>
-              </li>
-
-              <li class="dropdown">
-                <a href="{% url 'reviews' %}">Reviews</a>
-              </li>
-
-
-              <li class="dropdown">
-                <a href="{% url 'careers' %}">Careers</a>
-              </li>
-
-              <li class="dropdown">
-                <a href="{% url 'internships' %}">Internships</a>
-              </li>
-
-              <li class="dropdown">
                 <a href="{% url 'contact' %}">Contact</a>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'contact' %}">Affordable Options</a>
               </li>
 
               <li class="dropdown">
@@ -170,11 +157,11 @@
 
               {% else %}
                 <li class="dropdown">
-                  <a href="{% url 'account_login' %}">Login</a>
+                  <a href="{% url 'account_login' %}">Sign In</a>
                 </li>
-                <!--<li class="dropdown">
-                  <a href="{% url 'account_signup' %}">Sign Up</a>
-                </li>-->
+                <li class="dropdown">
+                  <a href="{% url 'account_signup' %}">Sign Up For Free</a>
+                </li>
               {% endif %}
             </ul>
           </div>

@@ -693,8 +693,7 @@ Responsive Media Querries
 -------------------------------------------------------- */
 
 .serv-us{
-	background: rgba(0,0,0,.85);
-	background-image: url('../images/background.jpg');
+	background: rgba(46,56,143,255);
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: 50% 0% !important;
@@ -922,8 +921,7 @@ Responsive Media Querries
 
 .clients{
 	background-blend-mode: overlay;
-	background: rgba(0,0,0,.7);
-	background-image: url(../images/background.jpg);
+	background: rgba(46,56,143,255);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -1063,8 +1061,7 @@ Responsive Media Querries
 
 .numbers{
 	background-blend-mode: overlay;
-	background: rgba(0,0,0,.7);
-	background-image: url(../images/background.jpg);
+	background: rgba(46,56,143,255);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -1329,7 +1326,7 @@ footer .small-footer p{
 -------------------------------------------------------- */
 
 .demo-1{
-	background-image: url(../images/background.jpg);
+
 }
 
 /* -------------------------------------------------------
@@ -1337,7 +1334,7 @@ footer .small-footer p{
 -------------------------------------------------------- */
 
 .demo-2{
-	background-image: url(../images/background.jpg);
+
 }
 
 .typed-cursor{
@@ -1364,7 +1361,7 @@ footer .small-footer p{
 -------------------------------------------------------- */
 
 .demo-3{
-	background-image: url(../images/background.jpg);
+
 }
 
 .demo-3 .caption{
@@ -1419,7 +1416,7 @@ footer .small-footer p{
 -------------------------------------------------------- */
 
 .demo-4{
-	background-image: url(../images/background.jpg);
+
 }
 
 .demo-4 .owl-carousel,
@@ -1527,7 +1524,7 @@ footer .small-footer p{
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background: rgba(34,34,34,.4);
+	background: rgba(46,56,143,255);
 }
 
 /* -------------------------------------------------------
@@ -2061,7 +2058,7 @@ footer .small-footer p{
 }
 
 .shop-bg .header-overlay{
-	background: rgba(0,0,0,.2);
+	background: rgba(46,56,143,255);
 }
 
 .products{

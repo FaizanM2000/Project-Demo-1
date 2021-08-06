@@ -23,34 +23,26 @@
 
             <ul class="nav navbar-nav navbar-right">
 
-              <li class="dropdown">
-                <a href="{% url 'home' %}">Home</a>
+                <li class="dropdown">
+                <a href="{% url 'home' %}" style="font-size:50px">Home</a>
               </li>
 
               <li class="dropdown">
-                <a href="{% url 'about' %}">About</a>
-              </li>
-
-              <li class="dropdown">
-                <a href="{% url 'reviews' %}">Reviews</a>
-              </li>
-
-
-              <li class="dropdown">
-                <a href="{% url 'careers' %}">Careers</a>
-              </li>
-
-              <li class="dropdown">
-                <a href="{% url 'internships' %}">Internships</a>
-              </li>
-
-             <li class="dropdown">
                 <a href="{% url 'contact' %}">Contact</a>
-             </li>
+              </li>
+
+              <li class="dropdown">
+                <a href="{% url 'contact' %}">Affordable Options</a>
+              </li>
 
               <li class="dropdown">
                 <a href="{% url 'privacy' %}">Privacy Policy</a>
               </li>
+
+              <li class="dropdown">
+                <a href="{% url 'privacy' %}">Plans & Pricing</a>
+              </li>
+
 
               {% if request.user.is_authenticated %}
                 {% csrf_token %}
@@ -66,11 +58,11 @@
 
               {% else %}
                 <li class="dropdown">
-                  <a href="{% url 'account_login' %}">Login</a>
+                  <a href="{% url 'account_login' %}">Sign In</a>
                 </li>
-                <!--<li class="dropdown">
-                  <a href="{% url 'account_signup' %}">Sign Up</a>
-                </li>-->
+                <li class="dropdown">
+                  <a href="{% url 'account_signup' %}">Sign Up For Free</a>
+                </li>
               {% endif %}
             </ul>
           </div>
@@ -87,14 +79,39 @@
 			<div class="header-overlay">
 				<!-- header content -->
 				<div class="caption v-middle text-center">
-          <h1>We Are TutorDudes</h1>
-					<h6>Find the Best Tutor at Your Learning Style</h6>
-					<button class="button btn-lg btn-warning btn-rdus mt-10"><a href="{% url 'account_login' %}">Get Started</a></button>
+          <h1>Welcome to TDULTRA</h1>
+					<h6></h6>
+					<button class="button btn-lg btn-warning btn-rdus mt-10"><a href="{% url 'account_login' %}">Get your personalized help today</a></button>
 				</div>
 				<div class="button-scroll" data-scrollTo="about"><span></span></div>
 			</div>
 		</header>
 		<!-- ====== End Header ======  -->
+
+    <!-- ====== Video ======  -->
+		<div class="serv-us">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-sm-6 us-content">
+						<h5>What you get</h5>
+            <p> Welcome to TDULTRA, the first user friendly and convenient educational web conferencing platforms designed for personalized one-on-one tutoring with TutorDudes and with educational tools for virtual classrooms</p>
+					</div>
+
+					<!-- our video -->
+					<!--<div class="col-md-offset-2 col-md-6 col-sm-6">
+						<div class="our-video">
+							<img src="https://images.squarespace-cdn.com/content/v1/5f3419147eb8f5531f546462/1609279280120-52GWOE36M6MNHJOZLUAB/ke17ZwdGBToddI8pDm48kA3CdFQrw9uyrfgw9IieNbhZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpyzqBq3i7xPFQ5ak81xQmRGfzLvMXrgStyxzv2BdT2eG889UAXQAt2vx13GpVXxdg4/StudentsIMG.jpg?format=2500w" alt="image">
+							<a class="vid" href="https://vimeo.com/127203262">
+								<div class="vid-play v-middle text-center">
+									<span><i class="fa fa-play-circle" aria-hidden="true"></i></span>
+								</div>
+							</a>
+						</div>
+					</div>-->
+				</div>
+			</div>
+		</div>
+		<!-- ====== End Video ======  -->
 
 		<!-- ====== services ======  -->
 		<section id="services" class="services section-padding">
@@ -102,7 +119,7 @@
 
 				<!-- section head -->
 				<div class="section-head text-center">
-					<h5 class="tit">SERVICES</h5>
+					<h5 class="tit">TDULTRA presents several new educational features including refreshed layout, Scientific Calculator, Scientific Modules for STEM classes, 24/7 Tech Support and So Much More!</h5>
 				</div>
 
 				<div class="row">
@@ -165,30 +182,6 @@
 		</section>
 		<!-- ====== End services ======  -->
 
-  <!-- ====== Video ======  -->
-		<div class="serv-us">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 col-sm-6 us-content">
-						<h5>Why Choose Us</h5>
-            <p>TutorDudes is a digital learning (SaaS) platform that provides tailored subject tutoring solutions with quality service, low price, satisfaction promise.</p>
-					</div>
-
-					<!-- our video -->
-					<!--<div class="col-md-offset-2 col-md-6 col-sm-6">
-						<div class="our-video">
-							<img src="https://images.squarespace-cdn.com/content/v1/5f3419147eb8f5531f546462/1609279280120-52GWOE36M6MNHJOZLUAB/ke17ZwdGBToddI8pDm48kA3CdFQrw9uyrfgw9IieNbhZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpyzqBq3i7xPFQ5ak81xQmRGfzLvMXrgStyxzv2BdT2eG889UAXQAt2vx13GpVXxdg4/StudentsIMG.jpg?format=2500w" alt="image">
-							<a class="vid" href="https://vimeo.com/127203262">
-								<div class="vid-play v-middle text-center">
-									<span><i class="fa fa-play-circle" aria-hidden="true"></i></span>
-								</div>
-							</a>
-						</div>
-					</div>-->
-				</div>
-			</div>
-		</div>
-		<!-- ====== End Video ======  -->
 
     <!-- ====== process ======  -->
 		<section class="process section-padding">
@@ -358,7 +351,7 @@
 						<div class="col-sm-4">
 							<div class="item-about">
 								<img src="{% static 'images/tutordudes_logo.png' %}" alt="logo" class="logo_footer_home">
-                <p>TutorDudes is a digital learning (SaaS) platform that provides tailored subject tutoring solutions to a student's learning style.</p>
+                <p>TDULTRA is the first user friendly and convenient educational web conferencing platforms designed for personalized one-on-one tutoring with TutorDudes.</p>
 								<div class="social-icon">
 									<span><a href="https://www.facebook.com/tutordudesllc"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
 									<span><a href="https://twitter.com/tutordudesllc"><i class="fa fa-twitter" aria-hidden="true"></i></a></span>
@@ -372,7 +365,7 @@
 						<div class="col-sm-4">
               <div class="item">
 							  <div class="twity">
-								  <h6>TutorDudes Resources Link</h6>
+								  <h6>Other Resources</h6>
                   <span><a href="https://play.google.com/store/apps/dev?id=9110467796888598878" class="icon-games"><i class="fa fa-external-link" aria-hidden="true"></i></a></span>
                   <p>TDGAMES - MOBILE WEBSITE </p>
 							  </div>
@@ -381,28 +374,10 @@
                   <span><a href="https://tdgames.com" class="icon-games"><i class="fa fa-external-link" aria-hidden="true"></i></a></span>
 								  <p>TDGames - ONLINE WEBSITE</p>
 							  </div>
-                <div class="links">
-                  <a href="{% url 'home' %}"><span>Home</span></a>
-                  <a href="{% url 'careers' %}"><span>Careers</span></a>
-                  <a href="{% url 'internships' %}"><span>Internships</span></a>
-                  <a href="{% url 'contact' %}"><span>Contact</span></a>
-                </div>
               </div>
 						</div>
 
 						<!-- subscribe -->
-						<div class="col-sm-4">
-							<div class="item">
-								<h6>GET IN TOUCH</h6>
-								<div class="sub-form">
-									<p>Subscribe To Get Latest News & Updates</p>
-									<input type="text" name="email" placeholder="Your Email">
-									<div class="btn-sub">
-										<button>Subscribe</button>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -410,7 +385,7 @@
 			<!-- sub footer -->
 			<div class="sub-footer text-center">
 				<div class="container">
-					<p>2021 Copyright © By TutorDudes | All Rights Reserved.</p>
+					<p>2021 Copyright © By TDULTRA | All Rights Reserved.</p>
 				</div>
 			</div>
   </footer>
