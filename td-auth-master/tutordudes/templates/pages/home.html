@@ -24,44 +24,46 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li class="dropdown">
-                <a href="{% url 'home' %}"style="font-size:12px"style = "color:white" >Home</a>
+                <a href="{% url 'home' %}"style="font-size:12px"><b>Home</b></a>
               </li>
 
               <li class="dropdown">
-                <a href="{% url 'contact' %}" style="font-size:12px" style = "color:white">Contact</a>
+                <a href="{% url 'contact' %}" style="font-size:12px"><b>Contact</b></a>
+              </li>
+
+              <!--
+              <li class="dropdown">
+                <a href="{% url 'options' %}"style="font-size:12px"><b>Affordable Options</b></a>
+              </li>
+              -->
+
+              <li class="dropdown">
+                <a href="{% url 'privacy' %}"style="font-size:12px"><b>Privacy Policy</b></a>
               </li>
 
               <li class="dropdown">
-                <a href="{% url 'options' %}"style="font-size:12px"style = "color:white">Affordable Options</a>
-              </li>
-
-              <li class="dropdown">
-                <a href="{% url 'privacy' %}"style="font-size:12px"style = "color:white">Privacy Policy</a>
-              </li>
-
-              <li class="dropdown">
-                <a href="{% url 'privacy' %}"style="font-size:12px"style = "color:white">Plans & Pricing</a>
+                <a href="{% url 'payment:plan' %}"style="font-size:12px"><b>Plans & Pricing</b></a>
               </li>
 
 
               {% if request.user.is_authenticated %}
                 {% csrf_token %}
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"style="font-size:12px"style = "color:white">{{ request.user.username }} Settings</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"style="font-size:12px"style = "color:white">{{ request.user.username }}<b>Settings</b> </a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="{% url 'users:subscription' username=request.user.username %}"style="font-size:12px"style = "color:white"><i class="fa fa-user-circle"></i>&nbsp; Profile</a></li>
-                    <li><a href="{% url 'account_change_password' %}"style="font-size:12px"style = "color:white"><i class="fa fa-key"></i>&nbsp; Change Password</a></li>
-                    <li id="manage-billing"><a href="#"style="font-size:12px"style = "color:white"><i class="fa fa-cc-stripe"></i>&nbsp; Manage Billing</a></li>
-                    <li><a href="{% url 'account_logout' %}"style="font-size:12px"style = "color:white"><i class="fa fa-sign-out"></i>&nbsp; Logout</a></li>
+                    <li><a href="{% url 'users:subscription' username=request.user.username %}"style="font-size:12px"style = "color:white"><i class="fa fa-user-circle"></i>&nbsp;<b>Profile</b> </a></li>
+                    <li><a href="{% url 'account_change_password' %}"style="font-size:12px"style = "color:white"><i class="fa fa-key"></i>&nbsp;<b> Change Password</b></a></li>
+                    <li id="manage-billing"><a href="#"style="font-size:12px"style = "color:white"><i class="fa fa-cc-stripe"></i>&nbsp;<b>Manage Billing</b></a></li>
+                    <li><a href="{% url 'account_logout' %}"style="font-size:12px"style = "color:white"><i class="fa fa-sign-out"></i>&nbsp;<b>Logout</b> </a></li>
                   </ul>
                 </li>
 
               {% else %}
                 <li class="dropdown">
-                  <a href="{% url 'account_login' %}"style="font-size:12px">Sign In</a>
+                  <a href="{% url 'account_login' %}"style="font-size:12px"><b>Sign In</b></a>
                 </li>
                 <li class="dropdown">
-                  <a href="{% url 'account_signup' %}"style="font-size:12px">Sign Up For Free</a>
+                  <a href="{% url 'account_signup' %}"style="font-size:12px"><b>Sign Up For Free</b></a>
                 </li>
               {% endif %}
             </ul>
@@ -81,7 +83,7 @@
 				<div class="caption v-middle text-center">
           <h1>Welcome to TDULTRA</h1>
 					<h6></h6>
-					<button class="button btn-lg btn-warning btn-rdus mt-10" style="background-color: white"><a href="{% url 'account_login' %}">Get your personalized help today</a></button>
+					<button class="button btn-lg btn-warning btn-rdus mt-10" style="background-color: white"><a href="{% url 'account_login' %}">Sign In</a></button>
 				</div>
 				<div class="button-scroll" data-scrollTo="about"><span></span></div>
 			</div>
@@ -98,16 +100,11 @@
 					</div>
 
 					<!-- our video -->
-					<!--<div class="col-md-offset-2 col-md-6 col-sm-6">
+					<div class="col-md-offset-2 col-md-6 col-sm-6">
 						<div class="our-video">
-							<img src="https://images.squarespace-cdn.com/content/v1/5f3419147eb8f5531f546462/1609279280120-52GWOE36M6MNHJOZLUAB/ke17ZwdGBToddI8pDm48kA3CdFQrw9uyrfgw9IieNbhZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpyzqBq3i7xPFQ5ak81xQmRGfzLvMXrgStyxzv2BdT2eG889UAXQAt2vx13GpVXxdg4/StudentsIMG.jpg?format=2500w" alt="image">
-							<a class="vid" href="https://vimeo.com/127203262">
-								<div class="vid-play v-middle text-center">
-									<span><i class="fa fa-play-circle" aria-hidden="true"></i></span>
-								</div>
-							</a>
+							<img src="static/images/image1.jpg" alt="image1">
 						</div>
-					</div>-->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -129,7 +126,7 @@
 						<div class="col-md-4">
 							<div class="serv-item">
 								<span class="icon-laptop"></span>
-								<h6>Online Tutoring</h6>
+								<h6>Online Tutoring with TDULTRA</h6>
 								<p>Our online tutoring provides students with strong academic support they need to keep academic momentum going. </p>
 							</div>
 						</div>
@@ -180,6 +177,9 @@
 				</div>
 			</div>
 		</section>
+
+
+
 		<!-- ====== End services ======  -->
 
 
@@ -212,7 +212,7 @@
 								</div>
 							</div>
 							<div class="item-content">
-								<p>Select and pay monthly/annually subscriptions</p>
+								<p>Select and pay monthly subscriptions</p>
 							</div>
 						</div>
 					</div>
@@ -222,11 +222,11 @@
 							<div class="item-title">
 								<div class="item-rotate">
 									<h5>03</h5>
-									<h6>Search Tutors</h6>
+									<h6>Go to TDULTRA</h6>
 								</div>
 							</div>
 							<div class="item-content">
-								<p>Find and contact best tutors at your learning style</p>
+								<p>Start using our TDULTRA software to get help</p>
 							</div>
 						</div>
 					</div>
@@ -248,49 +248,15 @@
 				</div>
 			</div>
 		</section>
+    <div class="col-md-offset-2 col-md-6 col-sm-6">
+      <div class="our-video">
+        <img src="static/images/image2.jpg" alt="image1">
+      </div>
+    </div>
 		<!-- ====== End process ======  -->
 
 		<!--====== Numbers ======-->
-		<section class="numbers">
-			<div class="container">
-				<div class="row text-center">
 
-					<!-- number items -->
-					<div class="col-md-3 col-sm-6">
-						<div class="numb-item">
-							<span class="icon-happy"></span>
-							<h3 class="counter">240</h3>
-							<p>HAPPY STUDENTS</p>
-						</div>
-					</div>
-
-					<div class="col-md-3 col-sm-6">
-						<div class="numb-item">
-							<span class="icon-layers"></span>
-							<h3 class="counter">412</h3>
-							<p>SUPPORT SUBJECTS</p>
-						</div>
-					</div>
-
-					<div class="col-md-3 col-sm-6">
-						<div class="numb-item">
-							<span class="icon-strategy"></span>
-							<h3 class="counter">126</h3>
-							<p>BEST TUTORS</p>
-						</div>
-					</div>
-
-					<div class="col-md-3 col-sm-6">
-						<div class="numb-item">
-							<span class="icon-trophy"></span>
-							<h3 class="counter">7</h3>
-							<p>AWARDS</p>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</section>
 		<!--====== End Numbers ======-->
 
 		<!--====== Contact ======-->
@@ -377,18 +343,22 @@
               </div>
 						</div>
 
+
+
 						<!-- subscribe -->
 					</div>
 				</div>
 			</div>
 
+
 			<!-- sub footer -->
 			<div class="sub-footer text-center">
 				<div class="container">
-					<p>2021 Copyright © By TDULTRA | All Rights Reserved.</p>
+					<p>2021 Copyright © By TutorDudes | All Rights Reserved.</p>
 				</div>
 			</div>
   </footer>
+
   <!--====== End Footer ======-->
 
 {% endblock %}
