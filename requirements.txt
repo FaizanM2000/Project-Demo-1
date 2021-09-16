@@ -25,7 +25,6 @@ decorator==4.4.2
 defusedxml==0.7.1
 distlib==0.3.1
 dj-stripe==2.4.3
-Django==2.2
 django-allauth==0.44.0
 django-cleanup==5.1.0
 django-coverage-plugin==1.8.0
