@@ -27,7 +27,12 @@ sys.path.append(str(ROOT_DIR / "tutordudes"))
 # if running multiple sites in the same mod_wsgi process. To fix this, use
 # mod_wsgi daemon mode with each site in its own daemon process, or use
 # os.environ["DJANGO_SETTINGS_MODULE"] = "config.settings.production"
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.production")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "TDULTRA_Site.settings.production")
+if os.environ.get("DJANGO_SETTINGS_MODULE") == "TDULTRA_Site.settings.production":
+    from raven.contrib.django.raven_compat.middleware.wsgi import Sentry
+    application = Sentry(get_wsgi_application())
+else:
+    get_wsgi_application()
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
